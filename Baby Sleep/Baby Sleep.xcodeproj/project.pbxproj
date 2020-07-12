@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5667F24B88CA6002FB386 /* AppDelegate.swift */; };
 		04F5668224B88CA6002FB386 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5668124B88CA6002FB386 /* SceneDelegate.swift */; };
-		04F5668424B88CA6002FB386 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5668324B88CA6002FB386 /* ViewController.swift */; };
+		04F5668424B88CA6002FB386 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5668324B88CA6002FB386 /* StartViewController.swift */; };
 		04F5668724B88CA6002FB386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F5668524B88CA6002FB386 /* Main.storyboard */; };
 		04F5668924B88CA9002FB386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F5668824B88CA9002FB386 /* Assets.xcassets */; };
 		04F5668C24B88CA9002FB386 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F5668A24B88CA9002FB386 /* LaunchScreen.storyboard */; };
 		04F5669524BAF975002FB386 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669424BAF975002FB386 /* Model.swift */; };
+		04F5669824BB02D9002FB386 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669724BB02D9002FB386 /* Extensions.swift */; };
+		04F5669C24BB07E5002FB386 /* Montserrat_Alternates.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */; };
+		04F5669E24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04F5669D24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf */; };
+		04F566A024BB0FD6002FB386 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669F24BB0FD6002FB386 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04F5667C24B88CA6002FB386 /* Baby Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Sleep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F5667F24B88CA6002FB386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F5668124B88CA6002FB386 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04F5668324B88CA6002FB386 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04F5668324B88CA6002FB386 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		04F5668624B88CA6002FB386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04F5668824B88CA9002FB386 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04F5668B24B88CA9002FB386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04F5668D24B88CA9002FB386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F5669424BAF975002FB386 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		04F5669724BB02D9002FB386 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat_Alternates.ttf; sourceTree = "<group>"; };
+		04F5669D24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MontserratAlternates_Regular.ttf; sourceTree = "<group>"; };
+		04F5669F24BB0FD6002FB386 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +66,16 @@
 		04F5667E24B88CA6002FB386 /* Baby Sleep */ = {
 			isa = PBXGroup;
 			children = (
+				04F5669924BB0753002FB386 /* Fonts */,
+				04F5669624BB01F7002FB386 /* Controllers */,
 				04F5669324BAF943002FB386 /* Model */,
 				04F5667F24B88CA6002FB386 /* AppDelegate.swift */,
 				04F5668124B88CA6002FB386 /* SceneDelegate.swift */,
-				04F5668324B88CA6002FB386 /* ViewController.swift */,
 				04F5668524B88CA6002FB386 /* Main.storyboard */,
 				04F5668824B88CA9002FB386 /* Assets.xcassets */,
 				04F5668A24B88CA9002FB386 /* LaunchScreen.storyboard */,
 				04F5668D24B88CA9002FB386 /* Info.plist */,
+				04F5669724BB02D9002FB386 /* Extensions.swift */,
 			);
 			path = "Baby Sleep";
 			sourceTree = "<group>";
@@ -76,6 +86,24 @@
 				04F5669424BAF975002FB386 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04F5669624BB01F7002FB386 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04F5668324B88CA6002FB386 /* StartViewController.swift */,
+				04F5669F24BB0FD6002FB386 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04F5669924BB0753002FB386 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */,
+				04F5669D24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +166,8 @@
 			files = (
 				04F5668C24B88CA9002FB386 /* LaunchScreen.storyboard in Resources */,
 				04F5668924B88CA9002FB386 /* Assets.xcassets in Resources */,
+				04F5669C24BB07E5002FB386 /* Montserrat_Alternates.ttf in Resources */,
+				04F5669E24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf in Resources */,
 				04F5668724B88CA6002FB386 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F5668424B88CA6002FB386 /* ViewController.swift in Sources */,
+				04F5669824BB02D9002FB386 /* Extensions.swift in Sources */,
+				04F5668424B88CA6002FB386 /* StartViewController.swift in Sources */,
 				04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */,
+				04F566A024BB0FD6002FB386 /* MainViewController.swift in Sources */,
 				04F5668224B88CA6002FB386 /* SceneDelegate.swift in Sources */,
 				04F5669524BAF975002FB386 /* Model.swift in Sources */,
 			);
