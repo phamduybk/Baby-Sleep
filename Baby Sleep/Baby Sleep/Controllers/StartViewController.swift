@@ -12,10 +12,15 @@ class StartViewController: UIViewController {
     
 //MARK:- Outlets
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    let background = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        setupBackground()
         setupButton()
+        backgroundImage.image = UIImage(named: "back")
+        backgroundImage.contentMode = .scaleAspectFill
     }
 //MARK:- Methods
     private func setupButton() {
@@ -24,6 +29,19 @@ class StartViewController: UIViewController {
         startButton.layer.cornerRadius = 32
         startButton.setTitleColor(.white, for: .normal)
     }
+    
+    
+//    private func setupBackground() {
+//        background.translatesAutoresizingMaskIntoConstraints = false
+//        background.image = UIImage(named: "back")
+//        background.contentMode = .scaleAspectFill
+//        view.addSubview(background)
+//
+//        background.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        background.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//    }
  //MARK:-Actions
     @IBAction func startButtonAction(_ sender: Any) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -10,9 +10,14 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .background
+        topView.backgroundColor = .background
+        bottomView.backgroundColor = .background
 
     }
 
