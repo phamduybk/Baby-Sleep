@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class StartViewController: UIViewController {
     
@@ -17,7 +18,6 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupBackground()
         setupButton()
         backgroundImage.image = UIImage(named: "back")
         backgroundImage.contentMode = .scaleAspectFill
@@ -42,6 +42,7 @@ class StartViewController: UIViewController {
 //        background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
 //        background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 //    }
+    
  //MARK:-Actions
     @IBAction func startButtonAction(_ sender: Any) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
