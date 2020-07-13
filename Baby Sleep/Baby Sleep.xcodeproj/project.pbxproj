@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		04F5669524BAF975002FB386 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669424BAF975002FB386 /* Model.swift */; };
 		04F5669824BB02D9002FB386 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669724BB02D9002FB386 /* Extensions.swift */; };
 		04F5669C24BB07E5002FB386 /* Montserrat_Alternates.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */; };
-		04F5669E24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04F5669D24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf */; };
 		04F566A024BB0FD6002FB386 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669F24BB0FD6002FB386 /* MainViewController.swift */; };
 		D119D954C87A003F2A472291 /* Pods_Baby_Sleep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DEA186E8F25836A30D84EB /* Pods_Baby_Sleep.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		04F5669424BAF975002FB386 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		04F5669724BB02D9002FB386 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat_Alternates.ttf; sourceTree = "<group>"; };
-		04F5669D24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MontserratAlternates_Regular.ttf; sourceTree = "<group>"; };
 		04F5669F24BB0FD6002FB386 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		374DD1B2284686A1912976D8 /* Pods-Baby Sleep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby Sleep.debug.xcconfig"; path = "Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep.debug.xcconfig"; sourceTree = "<group>"; };
 		97DEA186E8F25836A30D84EB /* Pods_Baby_Sleep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Sleep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */,
-				04F5669D24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -127,7 +124,6 @@
 				374DD1B2284686A1912976D8 /* Pods-Baby Sleep.debug.xcconfig */,
 				CF3180EE80ACA435B37E96FD /* Pods-Baby Sleep.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -194,7 +190,6 @@
 				04F5668C24B88CA9002FB386 /* LaunchScreen.storyboard in Resources */,
 				04F5668924B88CA9002FB386 /* Assets.xcassets in Resources */,
 				04F5669C24BB07E5002FB386 /* Montserrat_Alternates.ttf in Resources */,
-				04F5669E24BB0BDD002FB386 /* MontserratAlternates_Regular.ttf in Resources */,
 				04F5668724B88CA6002FB386 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

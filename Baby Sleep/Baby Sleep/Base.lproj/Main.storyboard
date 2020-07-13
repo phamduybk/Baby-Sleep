@@ -6,11 +6,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Montserrat_Alternates.ttf">
-            <string>MontserratAlternates-Black</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Start View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,40 +14,10 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="3we-q5-Gxc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl9-Ar-t7Y">
-                                <rect key="frame" x="50" y="616" width="314" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="9SW-1y-jfo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MontserratAlternates-Black" family="Montserrat Alternates" pointSize="25"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="startButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="byh-u6-Q21"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3we-q5-Gxc" secondAttribute="bottom" id="4wt-AU-vAG"/>
-                            <constraint firstItem="3we-q5-Gxc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IPP-i6-Wfd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hl9-Ar-t7Y" secondAttribute="bottom" constant="182" id="OGN-Q9-y2I"/>
-                            <constraint firstItem="hl9-Ar-t7Y" firstAttribute="centerX" secondItem="3we-q5-Gxc" secondAttribute="centerX" id="XHW-Li-Q2r"/>
-                            <constraint firstItem="hl9-Ar-t7Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="l08-DT-o0y"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hl9-Ar-t7Y" secondAttribute="trailing" constant="50" id="lDM-3L-TDP"/>
-                            <constraint firstItem="3we-q5-Gxc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ocO-hH-j4Y"/>
-                            <constraint firstItem="3we-q5-Gxc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vNm-8I-1dD"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="9pW-lz-RQ4"/>
-                    <connections>
-                        <outlet property="backgroundImage" destination="3we-q5-Gxc" id="Ktq-le-ICD"/>
-                        <outlet property="startButton" destination="hl9-Ar-t7Y" id="X2T-cJ-ysk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,57 +30,9 @@
                     <view key="view" contentMode="scaleToFill" id="iMi-3e-zyB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwM-z6-bpC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TopWave" translatesAutoresizingMaskIntoConstraints="NO" id="jwm-Fd-l1M">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="jwm-Fd-l1M" secondAttribute="bottom" id="I0H-be-eLs"/>
-                                    <constraint firstAttribute="height" constant="224" id="WWp-A6-DpD"/>
-                                    <constraint firstAttribute="trailing" secondItem="jwm-Fd-l1M" secondAttribute="trailing" id="gqN-Mo-nrk"/>
-                                    <constraint firstItem="jwm-Fd-l1M" firstAttribute="leading" secondItem="vwM-z6-bpC" secondAttribute="leading" id="kan-Gr-atW"/>
-                                    <constraint firstItem="jwm-Fd-l1M" firstAttribute="top" secondItem="vwM-z6-bpC" secondAttribute="top" id="nf0-3C-y1n"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPh-dg-au3">
-                                <rect key="frame" x="0.0" y="555" width="414" height="341"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BottomWave" translatesAutoresizingMaskIntoConstraints="NO" id="f03-t1-wQX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="341"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="341" id="GqH-cE-SvM"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="f03-t1-wQX" firstAttribute="leading" secondItem="HPh-dg-au3" secondAttribute="leading" id="IBo-Bu-5WB"/>
-                                    <constraint firstAttribute="bottom" secondItem="f03-t1-wQX" secondAttribute="bottom" id="P0c-ug-kpP"/>
-                                    <constraint firstAttribute="trailing" secondItem="f03-t1-wQX" secondAttribute="trailing" id="aQh-hi-kEi"/>
-                                    <constraint firstItem="f03-t1-wQX" firstAttribute="top" secondItem="HPh-dg-au3" secondAttribute="top" id="cZn-qh-7wU"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="vwM-z6-bpC" firstAttribute="trailing" secondItem="cPS-M8-6Pd" secondAttribute="trailing" id="Itm-z9-hDI"/>
-                            <constraint firstItem="HPh-dg-au3" firstAttribute="trailing" secondItem="cPS-M8-6Pd" secondAttribute="trailing" id="XZS-OI-HqI"/>
-                            <constraint firstItem="HPh-dg-au3" firstAttribute="leading" secondItem="cPS-M8-6Pd" secondAttribute="leading" id="b5c-hK-PLA"/>
-                            <constraint firstItem="vwM-z6-bpC" firstAttribute="top" secondItem="iMi-3e-zyB" secondAttribute="top" id="s9G-Jo-S5A"/>
-                            <constraint firstItem="vwM-z6-bpC" firstAttribute="leading" secondItem="cPS-M8-6Pd" secondAttribute="leading" id="xrg-fr-MDb"/>
-                            <constraint firstAttribute="bottom" secondItem="HPh-dg-au3" secondAttribute="bottom" id="ypO-8i-wXM"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cPS-M8-6Pd"/>
                     </view>
-                    <connections>
-                        <outlet property="bottomView" destination="HPh-dg-au3" id="ax1-eX-4E1"/>
-                        <outlet property="topView" destination="vwM-z6-bpC" id="RUp-9F-bFI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hr9-eB-fWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,9 +56,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="BottomWave" width="414" height="341"/>
-        <image name="TopWave" width="414" height="228"/>
-        <image name="back" width="828" height="1792"/>
-    </resources>
 </document>

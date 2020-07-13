@@ -7,18 +7,64 @@
 //
 
 import UIKit
+import SnapKit
 
 class MainViewController: UIViewController {
-
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var bottomView: UIView!
+    
+    
+    //MARK:- UI
+    let topView = UIView()
+    let bottomView = UIView()
+    let topImage = UIImageView()
+    let bottomImage = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .background
-        topView.backgroundColor = .background
-        bottomView.backgroundColor = .background
-
+        setupTop()
+        setupBottom()
+        
     }
-
+    //MARK:- Methods
+    
+    private func setupTop() {
+        topView.backgroundColor = .background
+        guard let image = UIImage(named: "TopWave") else { return }
+        topImage.image = image
+        topImage.contentMode = .scaleToFill
+        self.view.addSubview(topView)
+        self.view.addSubview(topImage)
+        // constraints
+        topView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.25)
+        }
+        
+        topImage.snp.makeConstraints { make in
+            make.top.bottom.trailing.leading.equalTo(topView)
+        }
+        
+    }
+    
+    private func setupBottom() {
+        bottomView.backgroundColor = .background
+        guard let image = UIImage(named: "BottomWave") else { return }
+        bottomImage.image = image
+        bottomImage.contentMode = .scaleToFill
+        self.view.addSubview(bottomView)
+        self.view.addSubview(bottomImage)
+        // constraints
+        
+        bottomView.snp.makeConstraints { make in
+            make.bottom.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        bottomImage.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalTo(bottomView)
+        }
+        
+    }
+    
+    
 }
