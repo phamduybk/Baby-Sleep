@@ -17,13 +17,13 @@ class MainViewController: UIViewController {
     let bottomView = UIView()
     let topImage = UIImageView()
     let bottomImage = UIImageView()
-    
+    let stopPlayButton = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .background
         setupTop()
         setupBottom()
-        
+        setupStopPlayButton()
     }
     //MARK:- Methods
     
@@ -57,13 +57,25 @@ class MainViewController: UIViewController {
         
         bottomView.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.3)
+            make.height.equalTo(307)
         }
         
         bottomImage.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalTo(bottomView)
         }
         
+    }
+    
+    private func setupStopPlayButton() {
+        guard let image = UIImage(named: "Pause") else { return }
+        stopPlayButton.setImage(image, for: .normal)
+        self.view.addSubview(stopPlayButton)
+        
+        //constraints
+        stopPlayButton.snp.makeConstraints { make in
+            make.bottom.equalTo(bottomView.snp.bottom).inset(50)
+            make.centerX.equalToSuperview()
+        }
     }
     
     
