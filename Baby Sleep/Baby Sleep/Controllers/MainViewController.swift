@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
     let loudVolumeImage = UIImageView()
     let quiteVolumeImage = UIImageView()
     let trackSlider = UISlider()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .background
@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
         setupBottom()
         setupStopPlayButton()
         setupVolumeSlider()
+        setupTrackSlider()
     }
     //MARK:- Methods
     
@@ -86,6 +87,7 @@ class MainViewController: UIViewController {
     
     private func setupVolumeSlider() {
         self.view.addSubview(volumeSlider)
+        volumeSlider.tintColor = .white
         guard let loudImage = UIImage(named: "SoundLoud") else { return }
         guard let quiteImage = UIImage(named: "SoundQuiet") else { return }
         loudVolumeImage.image = loudImage
@@ -99,7 +101,7 @@ class MainViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.width.equalTo(241)
             make.bottom.equalTo(stopPlayButton.snp.bottom).inset(60)
-      
+            
         }
         loudVolumeImage.snp.makeConstraints { make in
             make.centerY.equalTo(volumeSlider)
@@ -111,5 +113,17 @@ class MainViewController: UIViewController {
             make.trailing.equalTo(volumeSlider.snp.leading).offset(-16)
         }
     }
- 
+    
+    private func setupTrackSlider() {
+        self.view.addSubview(trackSlider)
+        trackSlider.tintColor = .white
+        
+        
+        trackSlider.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(241)
+            make.bottom.equalTo(volumeSlider.snp.bottom).inset(66)
+        }
+    }
+    
 }
