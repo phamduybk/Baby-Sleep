@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "BottomWave.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "triangle-bottom@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

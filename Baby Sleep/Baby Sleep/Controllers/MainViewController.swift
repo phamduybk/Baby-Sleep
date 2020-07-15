@@ -13,66 +13,57 @@ class MainViewController: UIViewController {
     
     
     //MARK:- UI
-    let topView = UIView()
-    let bottomView = UIView()
     let topImage = UIImageView()
+    let topTriangle = UIImageView()
     let bottomImage = UIImageView()
+    let bottomTriangle = UIImageView()
     let stopPlayButton = UIButton()
     let volumeSlider = UISlider()
     let loudVolumeImage = UIImageView()
     let quiteVolumeImage = UIImageView()
     let trackSlider = UISlider()
+    let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .background
-        setupTop()
-        setupBottom()
+        setupTopRectangle()
+        setupBottomRectangle()
         setupStopPlayButton()
         setupVolumeSlider()
         setupTrackSlider()
+        setupCollectionView()
+        setupTopTriangle()
+        setupBottomTriangle()
     }
     //MARK:- Methods
     
-    private func setupTop() {
-        topView.backgroundColor = .background
-        guard let image = UIImage(named: "TopWave") else { return }
+    private func setupTopRectangle() {
+        guard let image = UIImage(named: "Rectangletop") else { return }
+        topImage.backgroundColor = .background
         topImage.image = image
         topImage.contentMode = .scaleToFill
-        self.view.addSubview(topView)
         self.view.addSubview(topImage)
-        // constraints
-        topView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.25)
-        }
         
         topImage.snp.makeConstraints { make in
-            make.top.bottom.trailing.leading.equalTo(topView)
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.16)
         }
-        
     }
     
-    private func setupBottom() {
-        bottomView.backgroundColor = .background
-        guard let image = UIImage(named: "BottomWave") else { return }
+    private func setupBottomRectangle() {
+        guard let image = UIImage(named: "Rectanglebottom") else { return }
         bottomImage.image = image
+        bottomImage.backgroundColor = .background
         bottomImage.contentMode = .scaleToFill
-        self.view.addSubview(bottomView)
         self.view.addSubview(bottomImage)
-        // constraints
-        
-        bottomView.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalToSuperview()
-            make.height.equalTo(307)
-        }
         
         bottomImage.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalTo(bottomView)
+            make.bottom.leading.trailing.equalToSuperview()
+            make.height.equalTo(227)
         }
-        
     }
-    
+ 
     private func setupStopPlayButton() {
         guard let image = UIImage(named: "Pause") else { return }
         stopPlayButton.setImage(image, for: .normal)
@@ -80,7 +71,7 @@ class MainViewController: UIViewController {
         
         //constraints
         stopPlayButton.snp.makeConstraints { make in
-            make.bottom.equalTo(bottomView.snp.bottom).inset(50)
+            make.bottom.equalTo(bottomImage.snp.bottom).inset(50)
             make.centerX.equalToSuperview()
         }
     }
@@ -126,4 +117,49 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func setupCollectionView() {
+        self.view.addSubview(collectionView)
+        collectionView.backgroundColor = .background
+ // constraint
+        collectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(topImage.snp.bottom)
+            make.bottom.equalTo(bottomImage.snp.top)
+        }
+    }
+    
+    private func setupTopTriangle() {
+        guard let image = UIImage(named: "triangletop") else { return }
+        topTriangle.image = image
+        self.view.addSubview(topTriangle)
+        
+        
+        topTriangle.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.top.equalTo(topImage.snp.bottom)
+            make.width.height.equalTo(80)
+        }
+    }
+    
+    private func setupBottomTriangle() {
+        guard let image = UIImage(named: "trianglebottom") else { return }
+        bottomTriangle.image = image
+        self.view.addSubview(bottomTriangle)
+        
+        bottomTriangle.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.bottom.equalTo(bottomImage.snp.top)
+            make.width.height.equalTo(80)
+        }
+    }
+}
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
 }
