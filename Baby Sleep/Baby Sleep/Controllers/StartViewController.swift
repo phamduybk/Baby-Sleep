@@ -28,7 +28,7 @@ class StartViewController: UIViewController {
         startButton.setTitle("Начать", for: .normal)
         startButton.layer.cornerRadius = 32
         startButton.setTitleColor(.white, for: .normal)
-        startButton.titleLabel?.font = UIFont(name: "Montserrat Alternates", size: 25.0)
+        startButton.titleLabel?.font = UIFont(name: "MontserratAlternates-Black", size: 25.0)
         startButton.addTarget(self, action: #selector(startButtonAction), for: .touchUpInside)
         self.view.addSubview(startButton)
         // set constrains

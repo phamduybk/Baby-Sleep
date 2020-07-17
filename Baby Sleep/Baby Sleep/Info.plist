@@ -7,6 +7,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat_Alternates.ttf</string>
+		<string>Montserra_Regular.ttf</string>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>

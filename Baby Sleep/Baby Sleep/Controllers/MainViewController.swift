@@ -9,12 +9,30 @@
 import UIKit
 import SnapKit
 
+private let identifier = "cell"
+
 class MainViewController: UIViewController {
+    
+    let natureModels: [Model] = [Model(name: "Водопад", image: UIImage(named: "waterFall") ?? UIImage(), audio: "waterFall"),
+                           Model(name: "Лес", image: UIImage(named: "forest") ?? UIImage(), audio: "forest"),
+                           Model(name: "Ручей", image: UIImage(named: "stream") ?? UIImage(), audio: "stream"),
+                           Model(name: "Море", image: UIImage(named: "sea") ?? UIImage(), audio: "sea"),
+                           Model(name: "Дождь", image: UIImage(named: "rain") ?? UIImage(), audio: "rain"),
+                           Model(name: "Гроза", image: UIImage(named: "storm") ?? UIImage(), audio: "rain")
+    ]
+    
+    let noiseModels: [Model] = [
+        
+    ]
     
     
     //MARK:- UI
     let topImage = UIImageView()
     let topTriangle = UIImageView()
+    let natureLabel = UIButton()
+    let natureDot = UIImageView()
+    let noiseDot = UIImageView()
+    let noiseLable = UIButton()
     let bottomImage = UIImageView()
     let bottomTriangle = UIImageView()
     let stopPlayButton = UIButton()
@@ -22,8 +40,18 @@ class MainViewController: UIViewController {
     let loudVolumeImage = UIImageView()
     let quiteVolumeImage = UIImageView()
     let trackSlider = UISlider()
-    let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-
+    fileprivate let collectionView:UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 50, left: 35, bottom: 80, right: 35)
+        layout.minimumLineSpacing = 50
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(MainViewCell.self, forCellWithReuseIdentifier: identifier)
+        return cv
+    }()
+    
+    //    let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .background
@@ -35,6 +63,8 @@ class MainViewController: UIViewController {
         setupCollectionView()
         setupTopTriangle()
         setupBottomTriangle()
+        setupNatureLabel()
+        setupNoiseLabel()
     }
     //MARK:- Methods
     
@@ -47,7 +77,7 @@ class MainViewController: UIViewController {
         
         topImage.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.16)
+            make.height.equalTo(148)
         }
     }
     
@@ -63,7 +93,63 @@ class MainViewController: UIViewController {
             make.height.equalTo(227)
         }
     }
- 
+    
+    private func setupNatureLabel() {
+        natureLabel.setTitle("Природа", for: .normal)
+        natureLabel.titleLabel?.font = UIFont(name: "MontserratAlternates-Regular", size: 20.0)
+        natureLabel.tintColor = .white
+        natureLabel.addTarget(self, action: #selector(natureButtonAction), for: .touchUpInside)
+        self.view.addSubview(natureLabel)
+        
+        guard  let image = UIImage(named: "Oval") else { return }
+        natureDot.image = image
+        self.view.addSubview(natureDot)
+        
+        natureLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(60)
+            make.top.equalToSuperview().offset(80)
+            make.height.equalTo(24)
+            make.width.equalTo(101)
+        }
+        
+        natureDot.snp.makeConstraints { make in
+            make.width.height.equalTo(6)
+            make.centerX.equalTo(natureLabel)
+            make.top.equalTo(natureLabel.snp.bottom).offset(5)
+        }
+        
+    }
+    
+    private func setupNoiseLabel() {
+        noiseLable.setTitle("Шум", for: .normal)
+        noiseLable.titleLabel?.font = UIFont(name: "MontserratAlternates-Regular", size: 20.0)
+        noiseLable.tintColor = .white
+        noiseLable.titleLabel?.alpha = 0.5
+        noiseLable.addTarget(self, action: #selector(noiseButtonAction), for: .touchUpInside)
+        self.view.addSubview(noiseLable)
+        
+        guard  let image = UIImage(named: "Oval") else { return }
+        noiseDot.image = image
+        noiseDot.isHidden = true
+        self.view.addSubview(noiseDot)
+        
+        
+        noiseLable.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(61)
+            make.top.equalToSuperview().offset(80)
+            make.height.equalTo(24)
+            make.width.equalTo(53)
+        }
+        
+        noiseDot.snp.makeConstraints { make in
+            make.height.width.equalTo(6)
+            make.centerX.equalTo(noiseLable)
+            make.top.equalTo(noiseLable.snp.bottom).offset(5)
+        }
+        
+        
+    }
+    
     private func setupStopPlayButton() {
         guard let image = UIImage(named: "Pause") else { return }
         stopPlayButton.setImage(image, for: .normal)
@@ -120,7 +206,10 @@ class MainViewController: UIViewController {
     private func setupCollectionView() {
         self.view.addSubview(collectionView)
         collectionView.backgroundColor = .background
- // constraint
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        // constraint
         collectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(topImage.snp.bottom)
@@ -132,6 +221,7 @@ class MainViewController: UIViewController {
         guard let image = UIImage(named: "triangletop") else { return }
         topTriangle.image = image
         self.view.addSubview(topTriangle)
+        
         
         
         topTriangle.snp.makeConstraints { make in
@@ -152,14 +242,39 @@ class MainViewController: UIViewController {
             make.width.height.equalTo(80)
         }
     }
+
+    @objc func natureButtonAction() {
+        noiseDot.isHidden = true
+        noiseLable.titleLabel?.alpha = 0.5
+        natureDot.isHidden = false
+        natureLabel.titleLabel?.alpha = 1
+    }
+    
+    @objc func noiseButtonAction() {
+           natureDot.isHidden = true
+           natureLabel.titleLabel?.alpha = 0.5
+        noiseDot.isHidden = false
+        noiseLable.titleLabel?.alpha = 1
+       }
+
 }
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+
+extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 176)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return models.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let model = models[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
+        cell.configute(with: model)
+        return cell
     }
 }
