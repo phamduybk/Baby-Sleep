@@ -14,18 +14,22 @@ private let identifier = "cell"
 class MainViewController: UIViewController {
     
     let natureModels: [Model] = [Model(name: "Водопад", image: UIImage(named: "waterFall") ?? UIImage(), audio: "waterFall"),
-                           Model(name: "Лес", image: UIImage(named: "forest") ?? UIImage(), audio: "forest"),
-                           Model(name: "Ручей", image: UIImage(named: "stream") ?? UIImage(), audio: "stream"),
-                           Model(name: "Море", image: UIImage(named: "sea") ?? UIImage(), audio: "sea"),
-                           Model(name: "Дождь", image: UIImage(named: "rain") ?? UIImage(), audio: "rain"),
-                           Model(name: "Гроза", image: UIImage(named: "storm") ?? UIImage(), audio: "rain")
+                                 Model(name: "Лес", image: UIImage(named: "forest") ?? UIImage(), audio: "forest"),
+                                 Model(name: "Ручей", image: UIImage(named: "stream") ?? UIImage(), audio: "stream"),
+                                 Model(name: "Море", image: UIImage(named: "sea") ?? UIImage(), audio: "sea"),
+                                 Model(name: "Дождь", image: UIImage(named: "rain") ?? UIImage(), audio: "rain"),
+                                 Model(name: "Гроза", image: UIImage(named: "storm") ?? UIImage(), audio: "rain")
     ]
     
-    let noiseModels: [Model] = [
-        
+    let noiseModels: [Model] = [Model(name: "Фен", image: UIImage(named: "hairdryer") ?? UIImage(), audio: "hairdryer"),
+                                Model(name: "Белый шум", image: UIImage(named: "whiteNoise") ?? UIImage(), audio: "whiteNoise"),
+                                Model(name: "Пылесос", image: UIImage(named: "vacuum") ?? UIImage(), audio: "vacuum"),
+                                Model(name: "Вытяжка", image: UIImage(named: "hoods") ?? UIImage(), audio: "hoods"),
+                                Model(name: "Авто", image: UIImage(named: "car") ?? UIImage(), audio: "car")
     ]
     
-    
+    var noiseFlag = false
+
     //MARK:- UI
     let topImage = UIImageView()
     let topTriangle = UIImageView()
@@ -242,21 +246,25 @@ class MainViewController: UIViewController {
             make.width.height.equalTo(80)
         }
     }
-
+    
     @objc func natureButtonAction() {
+        noiseFlag = false
         noiseDot.isHidden = true
         noiseLable.titleLabel?.alpha = 0.5
         natureDot.isHidden = false
         natureLabel.titleLabel?.alpha = 1
+        collectionView.reloadData()
     }
     
     @objc func noiseButtonAction() {
-           natureDot.isHidden = true
-           natureLabel.titleLabel?.alpha = 0.5
+        noiseFlag = true
+        natureDot.isHidden = true
+        natureLabel.titleLabel?.alpha = 0.5
         noiseDot.isHidden = false
         noiseLable.titleLabel?.alpha = 1
-       }
-
+        collectionView.reloadData()
+    }
+    
 }
 
 
@@ -268,13 +276,25 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        if noiseFlag == true {
+            return noiseModels.count
+        } else {
+            return natureModels.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let model = models[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
-        cell.configute(with: model)
-        return cell
+        if noiseFlag == true {
+            let model = noiseModels[indexPath.row]
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
+            cell.configute(with: model)
+            return cell
+        } else {
+            let model = natureModels[indexPath.row]
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
+            cell.configute(with: model)
+            return cell
+            
+        }
     }
 }
