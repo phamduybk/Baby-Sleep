@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04616E8724C321C6000C227C /* waterFall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04616E8624C321C6000C227C /* waterFall.mp3 */; };
+		04616E8924C32289000C227C /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04616E8824C32289000C227C /* forest.mp3 */; };
+		046E883F24C479F900E53C87 /* stream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E883E24C479F900E53C87 /* stream.mp3 */; };
+		046E884124C47A8300E53C87 /* sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884024C47A8300E53C87 /* sea.mp3 */; };
+		046E884324C47ABC00E53C87 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884224C47ABC00E53C87 /* rain.mp3 */; };
+		046E884524C47B1200E53C87 /* storm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884424C47B1200E53C87 /* storm.mp3 */; };
+		046E884A24C47DB300E53C87 /* hairdryer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884924C47DB300E53C87 /* hairdryer.mp3 */; };
+		046E884C24C47E2A00E53C87 /* whiteNoise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884B24C47E2A00E53C87 /* whiteNoise.mp3 */; };
+		046E884E24C47F2A00E53C87 /* vacuum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884D24C47F2A00E53C87 /* vacuum.mp3 */; };
+		046E885024C47F6D00E53C87 /* hoods.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884F24C47F6D00E53C87 /* hoods.mp3 */; };
+		046E885224C47FAF00E53C87 /* car.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E885124C47FAF00E53C87 /* car.mp3 */; };
 		0496B48E24C1D87E00677EAA /* Montserra_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */; };
 		0496B49124C1EFE000677EAA /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B49024C1EFE000677EAA /* MainViewCell.swift */; };
 		04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5667F24B88CA6002FB386 /* AppDelegate.swift */; };
@@ -23,6 +34,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04616E8624C321C6000C227C /* waterFall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = waterFall.mp3; sourceTree = "<group>"; };
+		04616E8824C32289000C227C /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
+		046E883E24C479F900E53C87 /* stream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stream.mp3; sourceTree = "<group>"; };
+		046E884024C47A8300E53C87 /* sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sea.mp3; sourceTree = "<group>"; };
+		046E884224C47ABC00E53C87 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
+		046E884424C47B1200E53C87 /* storm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = storm.mp3; sourceTree = "<group>"; };
+		046E884924C47DB300E53C87 /* hairdryer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hairdryer.mp3; sourceTree = "<group>"; };
+		046E884B24C47E2A00E53C87 /* whiteNoise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whiteNoise.mp3; sourceTree = "<group>"; };
+		046E884D24C47F2A00E53C87 /* vacuum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vacuum.mp3; sourceTree = "<group>"; };
+		046E884F24C47F6D00E53C87 /* hoods.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hoods.mp3; sourceTree = "<group>"; };
+		046E885124C47FAF00E53C87 /* car.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = car.mp3; sourceTree = "<group>"; };
 		0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserra_Regular.ttf; sourceTree = "<group>"; };
 		0496B49024C1EFE000677EAA /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		04F5667C24B88CA6002FB386 /* Baby Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Sleep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +76,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046E884624C47D0800E53C87 /* Nature audio */ = {
+			isa = PBXGroup;
+			children = (
+				04616E8624C321C6000C227C /* waterFall.mp3 */,
+				04616E8824C32289000C227C /* forest.mp3 */,
+				046E883E24C479F900E53C87 /* stream.mp3 */,
+				046E884024C47A8300E53C87 /* sea.mp3 */,
+				046E884224C47ABC00E53C87 /* rain.mp3 */,
+				046E884424C47B1200E53C87 /* storm.mp3 */,
+			);
+			path = "Nature audio";
+			sourceTree = "<group>";
+		};
+		046E884724C47D9800E53C87 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				046E884824C47DA500E53C87 /* Noise */,
+				046E884624C47D0800E53C87 /* Nature audio */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		046E884824C47DA500E53C87 /* Noise */ = {
+			isa = PBXGroup;
+			children = (
+				046E884924C47DB300E53C87 /* hairdryer.mp3 */,
+				046E884B24C47E2A00E53C87 /* whiteNoise.mp3 */,
+				046E884D24C47F2A00E53C87 /* vacuum.mp3 */,
+				046E884F24C47F6D00E53C87 /* hoods.mp3 */,
+				046E885124C47FAF00E53C87 /* car.mp3 */,
+			);
+			path = Noise;
+			sourceTree = "<group>";
+		};
 		0496B48F24C1EF9C00677EAA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +139,7 @@
 		04F5667E24B88CA6002FB386 /* Baby Sleep */ = {
 			isa = PBXGroup;
 			children = (
+				046E884724C47D9800E53C87 /* Audio */,
 				04F5669924BB0753002FB386 /* Fonts */,
 				04F5669324BAF943002FB386 /* Model */,
 				0496B48F24C1EF9C00677EAA /* View */,
@@ -201,11 +258,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046E884C24C47E2A00E53C87 /* whiteNoise.mp3 in Resources */,
 				04F5668C24B88CA9002FB386 /* LaunchScreen.storyboard in Resources */,
 				04F5668924B88CA9002FB386 /* Assets.xcassets in Resources */,
 				04F5669C24BB07E5002FB386 /* Montserrat_Alternates.ttf in Resources */,
+				046E885024C47F6D00E53C87 /* hoods.mp3 in Resources */,
+				04616E8724C321C6000C227C /* waterFall.mp3 in Resources */,
+				046E883F24C479F900E53C87 /* stream.mp3 in Resources */,
+				046E884A24C47DB300E53C87 /* hairdryer.mp3 in Resources */,
 				0496B48E24C1D87E00677EAA /* Montserra_Regular.ttf in Resources */,
+				046E884324C47ABC00E53C87 /* rain.mp3 in Resources */,
+				046E884E24C47F2A00E53C87 /* vacuum.mp3 in Resources */,
+				046E885224C47FAF00E53C87 /* car.mp3 in Resources */,
+				046E884124C47A8300E53C87 /* sea.mp3 in Resources */,
 				04F5668724B88CA6002FB386 /* Main.storyboard in Resources */,
+				046E884524C47B1200E53C87 /* storm.mp3 in Resources */,
+				04616E8924C32289000C227C /* forest.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

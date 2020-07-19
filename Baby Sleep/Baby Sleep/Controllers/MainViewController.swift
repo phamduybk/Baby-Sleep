@@ -8,28 +8,29 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 private let identifier = "cell"
 
 class MainViewController: UIViewController {
     
-    let natureModels: [Model] = [Model(name: "Водопад", image: UIImage(named: "waterFall") ?? UIImage(), audio: "waterFall"),
-                                 Model(name: "Лес", image: UIImage(named: "forest") ?? UIImage(), audio: "forest"),
-                                 Model(name: "Ручей", image: UIImage(named: "stream") ?? UIImage(), audio: "stream"),
-                                 Model(name: "Море", image: UIImage(named: "sea") ?? UIImage(), audio: "sea"),
-                                 Model(name: "Дождь", image: UIImage(named: "rain") ?? UIImage(), audio: "rain"),
-                                 Model(name: "Гроза", image: UIImage(named: "storm") ?? UIImage(), audio: "rain")
+    let natureModels: [Model] = [Model(name: "Водопад", image: UIImage(named: "waterFall") ?? UIImage(), audio: "waterFall", color: .watterFallColor),
+                                 Model(name: "Лес", image: UIImage(named: "forest") ?? UIImage(), audio: "forest", color: .forestColor),
+                                 Model(name: "Ручей", image: UIImage(named: "stream") ?? UIImage(), audio: "stream", color: .streamColor),
+                                 Model(name: "Море", image: UIImage(named: "sea") ?? UIImage(), audio: "sea", color: .seaColor),
+                                 Model(name: "Дождь", image: UIImage(named: "rain") ?? UIImage(), audio: "rain", color: .rainColor),
+                                 Model(name: "Гроза", image: UIImage(named: "storm") ?? UIImage(), audio: "storm", color: .stormColor)
     ]
     
-    let noiseModels: [Model] = [Model(name: "Фен", image: UIImage(named: "hairdryer") ?? UIImage(), audio: "hairdryer"),
-                                Model(name: "Белый шум", image: UIImage(named: "whiteNoise") ?? UIImage(), audio: "whiteNoise"),
-                                Model(name: "Пылесос", image: UIImage(named: "vacuum") ?? UIImage(), audio: "vacuum"),
-                                Model(name: "Вытяжка", image: UIImage(named: "hoods") ?? UIImage(), audio: "hoods"),
-                                Model(name: "Авто", image: UIImage(named: "car") ?? UIImage(), audio: "car")
+    let noiseModels: [Model] = [Model(name: "Фен", image: UIImage(named: "hairdryer") ?? UIImage(), audio: "hairdryer", color: .hairdryerColor),
+                                Model(name: "Белый шум", image: UIImage(named: "whiteNoise") ?? UIImage(), audio: "whiteNoise", color: .whiteNoiseColor),
+                                Model(name: "Пылесос", image: UIImage(named: "vacuum") ?? UIImage(), audio: "vacuum", color: .vacuumColor),
+                                Model(name: "Вытяжка", image: UIImage(named: "hoods") ?? UIImage(), audio: "hoods", color: .hoodsColor),
+                                Model(name: "Авто", image: UIImage(named: "car") ?? UIImage(), audio: "car", color: .carColor)
     ]
     
     var noiseFlag = false
-
+    var player: AVAudioPlayer?
     //MARK:- UI
     let topImage = UIImageView()
     let topTriangle = UIImageView()
@@ -47,8 +48,8 @@ class MainViewController: UIViewController {
     fileprivate let collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 50, left: 35, bottom: 80, right: 35)
-        layout.minimumLineSpacing = 50
+        layout.sectionInset = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 15)
+        layout.minimumLineSpacing = 20
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(MainViewCell.self, forCellWithReuseIdentifier: identifier)
         return cv
@@ -157,6 +158,7 @@ class MainViewController: UIViewController {
     private func setupStopPlayButton() {
         guard let image = UIImage(named: "Pause") else { return }
         stopPlayButton.setImage(image, for: .normal)
+        stopPlayButton.addTarget(self, action: #selector(playerPause), for: .touchUpInside)
         self.view.addSubview(stopPlayButton)
         
         //constraints
@@ -164,6 +166,10 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(bottomImage.snp.bottom).inset(50)
             make.centerX.equalToSuperview()
         }
+    }
+    
+    @objc func playerPause(){
+        player?.pause()
     }
     
     private func setupVolumeSlider() {
@@ -297,4 +303,31 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if noiseFlag == false {
+            let model = natureModels[indexPath.row]
+            playAudio(audio: model.audio)
+        } else {
+            let model = noiseModels[indexPath.row]
+             playAudio(audio: model.audio)
+        }
+ 
+    }
+    
+    private func playAudio(audio: String) {
+        let urlString = Bundle.main.path(forResource: audio, ofType: "mp3")
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            guard let urlString = urlString else { return }
+            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            guard let player = player else { return }
+            player.play()
+        } catch {
+            print("error")
+        }
+    }
+    
+    
 }
