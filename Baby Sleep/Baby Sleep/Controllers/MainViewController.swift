@@ -31,6 +31,7 @@ class MainViewController: UIViewController {
     
     var noiseFlag = false
     var player: AVAudioPlayer?
+    
     //MARK:- UI
     let topImage = UIImageView()
     let topTriangle = UIImageView()
@@ -45,6 +46,7 @@ class MainViewController: UIViewController {
     let loudVolumeImage = UIImageView()
     let quiteVolumeImage = UIImageView()
     let trackSlider = UISlider()
+    
     fileprivate let collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -173,12 +175,14 @@ class MainViewController: UIViewController {
     }
     
     private func setupVolumeSlider() {
-        self.view.addSubview(volumeSlider)
+        volumeSlider.value = 0.5
         volumeSlider.tintColor = .white
         guard let loudImage = UIImage(named: "SoundLoud") else { return }
         guard let quiteImage = UIImage(named: "SoundQuiet") else { return }
         loudVolumeImage.image = loudImage
         quiteVolumeImage.image = quiteImage
+        volumeSlider.addTarget(self, action: #selector(changeVolume), for: .valueChanged)
+        self.view.addSubview(volumeSlider)
         self.view.addSubview(loudVolumeImage)
         self.view.addSubview(quiteVolumeImage)
         
@@ -199,6 +203,11 @@ class MainViewController: UIViewController {
             make.centerY.equalTo(volumeSlider)
             make.trailing.equalTo(volumeSlider.snp.leading).offset(-16)
         }
+    }
+    
+    @objc func changeVolume(_ slider: UISlider) {
+        let value = volumeSlider.value
+        player?.volume = value
     }
     
     private func setupTrackSlider() {
@@ -305,16 +314,25 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
         if noiseFlag == false {
             let model = natureModels[indexPath.row]
             playAudio(audio: model.audio)
+            cell.configute(with: model)
         } else {
             let model = noiseModels[indexPath.row]
-             playAudio(audio: model.audio)
+            playAudio(audio: model.audio)
+            cell.configute(with: model)
+            }
         }
- 
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
+            cell.nameLabel.textColor = .white
+        }
     }
     
+    // Method for start playing
     private func playAudio(audio: String) {
         let urlString = Bundle.main.path(forResource: audio, ofType: "mp3")
         do {
@@ -323,11 +341,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             guard let urlString = urlString else { return }
             player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
             guard let player = player else { return }
+            player.volume = 0
             player.play()
+            player.setVolume(volumeSlider.value, fadeDuration: 60.0)
         } catch {
             print("error")
         }
     }
-    
-    
 }

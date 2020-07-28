@@ -35,7 +35,7 @@ class MainViewCell: UICollectionViewCell {
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(142)
         }
-  
+        
     }
     
     private func setupNameLabel() {
@@ -52,43 +52,45 @@ class MainViewCell: UICollectionViewCell {
     func configute(with model: Model) {
         image.image = model.image
         nameLabel.text = model.name
-        
-        switch model.color {
-        case .watterFallColor:
-            nameLabel.textColor = UIColor.watterFallColor
-            nameLabel.layer.shadowColor = UIColor.watterFallColor.cgColor
-        case .forestColor:
-            nameLabel.textColor = UIColor.forestColor
-            nameLabel.layer.shadowColor = UIColor.rainColor.cgColor
-        case .streamColor:
-            nameLabel.textColor = UIColor.streamColor
-            nameLabel.layer.shadowColor = UIColor.streamColor.cgColor
-        case .seaColor:
-            nameLabel.textColor = UIColor.seaColor
-            nameLabel.layer.shadowColor = UIColor.seaColor.cgColor
-        case .rainColor:
-            nameLabel.textColor = UIColor.rainColor
-            nameLabel.layer.shadowColor = UIColor.rainColor.cgColor
-        case .stormColor:
-            nameLabel.textColor = UIColor.stormColor
-            nameLabel.layer.shadowColor = UIColor.stormColor.cgColor
-        case .hairdryerColor:
-            nameLabel.textColor = UIColor.hairdryerColor
-            nameLabel.layer.shadowColor = UIColor.hairdryerColor.cgColor
-        case .whiteNoiseColor:
-            nameLabel.textColor = UIColor.whiteNoiseColor
-            nameLabel.layer.shadowColor = UIColor.whiteNoiseColor.cgColor
-        case .vacuumColor:
-            nameLabel.textColor = UIColor.vacuumColor
-            nameLabel.layer.shadowColor = UIColor.vacuumColor.cgColor
-        case .hoodsColor:
-            nameLabel.textColor = UIColor.hoodsColor
-            nameLabel.layer.shadowColor = UIColor.hoodsColor.cgColor
-        case .carColor:
-            nameLabel.textColor = UIColor.carColor
-            nameLabel.layer.shadowColor = UIColor.carColor.cgColor
+        if isSelected {
+            switch model.color {
+            case .watterFallColor:
+                nameLabel.textColor = UIColor.watterFallColor
+                nameLabel.layer.shadowColor = UIColor.watterFallColor.cgColor
+            case .forestColor:
+                nameLabel.textColor = UIColor.forestColor
+                nameLabel.layer.shadowColor = UIColor.rainColor.cgColor
+            case .streamColor:
+                nameLabel.textColor = UIColor.streamColor
+                nameLabel.layer.shadowColor = UIColor.streamColor.cgColor
+            case .seaColor:
+                nameLabel.textColor = UIColor.seaColor
+                nameLabel.layer.shadowColor = UIColor.seaColor.cgColor
+            case .rainColor:
+                nameLabel.textColor = UIColor.rainColor
+                nameLabel.layer.shadowColor = UIColor.rainColor.cgColor
+            case .stormColor:
+                nameLabel.textColor = UIColor.stormColor
+                nameLabel.layer.shadowColor = UIColor.stormColor.cgColor
+            case .hairdryerColor:
+                nameLabel.textColor = UIColor.hairdryerColor
+                nameLabel.layer.shadowColor = UIColor.hairdryerColor.cgColor
+            case .whiteNoiseColor:
+                nameLabel.textColor = UIColor.whiteNoiseColor
+                nameLabel.layer.shadowColor = UIColor.whiteNoiseColor.cgColor
+            case .vacuumColor:
+                nameLabel.textColor = UIColor.vacuumColor
+                nameLabel.layer.shadowColor = UIColor.vacuumColor.cgColor
+            case .hoodsColor:
+                nameLabel.textColor = UIColor.hoodsColor
+                nameLabel.layer.shadowColor = UIColor.hoodsColor.cgColor
+            case .carColor:
+                nameLabel.textColor = UIColor.carColor
+                nameLabel.layer.shadowColor = UIColor.carColor.cgColor
+            }
+        } else {
+            nameLabel.textColor = .white
         }
     }
-    
-    
+ 
 }
