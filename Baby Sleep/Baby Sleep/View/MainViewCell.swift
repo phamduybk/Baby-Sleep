@@ -52,45 +52,68 @@ class MainViewCell: UICollectionViewCell {
     func configute(with model: Model) {
         image.image = model.image
         nameLabel.text = model.name
+    }
+    
+    
+    func highlights(with model: Model) {
         if isSelected {
             switch model.color {
             case .watterFallColor:
-                nameLabel.textColor = UIColor.watterFallColor
-                nameLabel.layer.shadowColor = UIColor.watterFallColor.cgColor
+                let color = UIColor.watterFallColor
+                makeHighlites(color: color)
             case .forestColor:
-                nameLabel.textColor = UIColor.forestColor
-                nameLabel.layer.shadowColor = UIColor.rainColor.cgColor
+                let color = UIColor.forestColor
+                makeHighlites(color: color)
             case .streamColor:
-                nameLabel.textColor = UIColor.streamColor
-                nameLabel.layer.shadowColor = UIColor.streamColor.cgColor
+                let color = UIColor.streamColor
+                makeHighlites(color: color)
             case .seaColor:
-                nameLabel.textColor = UIColor.seaColor
-                nameLabel.layer.shadowColor = UIColor.seaColor.cgColor
+                let color = UIColor.seaColor
+                makeHighlites(color: color)
             case .rainColor:
-                nameLabel.textColor = UIColor.rainColor
-                nameLabel.layer.shadowColor = UIColor.rainColor.cgColor
+                let color = UIColor.rainColor
+                makeHighlites(color: color)
             case .stormColor:
-                nameLabel.textColor = UIColor.stormColor
-                nameLabel.layer.shadowColor = UIColor.stormColor.cgColor
+                let color = UIColor.stormColor
+                makeHighlites(color: color)
             case .hairdryerColor:
-                nameLabel.textColor = UIColor.hairdryerColor
-                nameLabel.layer.shadowColor = UIColor.hairdryerColor.cgColor
+                let color = UIColor.hairdryerColor
+                makeHighlites(color: color)
             case .whiteNoiseColor:
-                nameLabel.textColor = UIColor.whiteNoiseColor
-                nameLabel.layer.shadowColor = UIColor.whiteNoiseColor.cgColor
+                let color = UIColor.whiteNoiseColor
+                makeHighlites(color: color)
             case .vacuumColor:
-                nameLabel.textColor = UIColor.vacuumColor
-                nameLabel.layer.shadowColor = UIColor.vacuumColor.cgColor
+                let color = UIColor.vacuumColor
+                makeHighlites(color: color)
             case .hoodsColor:
-                nameLabel.textColor = UIColor.hoodsColor
-                nameLabel.layer.shadowColor = UIColor.hoodsColor.cgColor
+                let color = UIColor.hoodsColor
+                makeHighlites(color: color)
             case .carColor:
-                nameLabel.textColor = UIColor.carColor
-                nameLabel.layer.shadowColor = UIColor.carColor.cgColor
+                let color = UIColor.carColor
+                makeHighlites(color: color)
             }
         } else {
             nameLabel.textColor = .white
+            nameLabel.layer.shadowRadius = 0.0
+            nameLabel.layer.shadowOpacity = 0.0
+            nameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            nameLabel.layer.masksToBounds = false
+            
         }
     }
- 
+    
+    private func makeHighlites(color: UIColor) {
+        nameLabel.textColor = color
+        nameLabel.layer.shadowColor = color.cgColor
+        nameLabel.layer.shadowRadius = 3.0
+        nameLabel.layer.shadowOpacity = 1.0
+        nameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+        nameLabel.layer.masksToBounds = false
+    }
+    
+    func deleteHighlites() {
+        nameLabel.textColor = .white
+        nameLabel.layer.shadowColor = nil
+    }
+    
 }

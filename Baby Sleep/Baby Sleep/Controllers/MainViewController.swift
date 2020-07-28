@@ -318,17 +318,17 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if noiseFlag == false {
             let model = natureModels[indexPath.row]
             playAudio(audio: model.audio)
-            cell.configute(with: model)
+            cell.highlights(with: model)
         } else {
             let model = noiseModels[indexPath.row]
             playAudio(audio: model.audio)
-            cell.configute(with: model)
+            cell.highlights(with: model)
             }
         }
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
-            cell.nameLabel.textColor = .white
+            cell.deleteHighlites()
         }
     }
     
