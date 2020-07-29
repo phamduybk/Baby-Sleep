@@ -315,16 +315,18 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
-        if noiseFlag == false {
-            let model = natureModels[indexPath.row]
-            playAudio(audio: model.audio)
-            cell.highlights(with: model)
-        } else {
-            let model = noiseModels[indexPath.row]
-            playAudio(audio: model.audio)
-            cell.highlights(with: model)
+            if noiseFlag == false {
+                let model = natureModels[indexPath.row]
+                playAudio(audio: model.audio)
+                cell.highlights(with: model)
+            } else {
+                let model = noiseModels[indexPath.row]
+                playAudio(audio: model.audio)
+                cell.highlights(with: model)
             }
         }
+        addHapticFeedback()
+        
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
@@ -347,5 +349,12 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         } catch {
             print("error")
         }
+    }
+    
+    //Method for add Haptic feedback
+    private func addHapticFeedback() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
     }
 }

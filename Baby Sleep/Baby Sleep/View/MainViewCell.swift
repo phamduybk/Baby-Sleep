@@ -109,11 +109,18 @@ class MainViewCell: UICollectionViewCell {
         nameLabel.layer.shadowOpacity = 1.0
         nameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         nameLabel.layer.masksToBounds = false
+        
+        contentView.layer.shadowColor = color.cgColor
+        contentView.layer.shadowRadius = 5.0
+        contentView.layer.shadowOpacity = 0.5
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        contentView.layer.masksToBounds = false
     }
     
     func deleteHighlites() {
         nameLabel.textColor = .white
         nameLabel.layer.shadowColor = nil
+        contentView.layer.shadowColor = nil
     }
     
 }
