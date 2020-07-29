@@ -158,7 +158,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupStopPlayButton() {
-        guard let image = UIImage(named: "Pause") else { return }
+        guard let image = UIImage(named: "Play") else { return }
         stopPlayButton.setImage(image, for: .normal)
         stopPlayButton.addTarget(self, action: #selector(playerPause), for: .touchUpInside)
         self.view.addSubview(stopPlayButton)
@@ -172,6 +172,7 @@ class MainViewController: UIViewController {
     
     @objc func playerPause(){
         player?.pause()
+        stopPlayButton.setImage(UIImage(named: "Play"), for: .normal)
     }
     
     private func setupVolumeSlider() {
@@ -269,6 +270,7 @@ class MainViewController: UIViewController {
         natureDot.isHidden = false
         natureLabel.titleLabel?.alpha = 1
         collectionView.reloadData()
+        
     }
     
     @objc func noiseButtonAction() {
@@ -346,6 +348,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             player.volume = 0
             player.play()
             player.setVolume(volumeSlider.value, fadeDuration: 60.0)
+            stopPlayButton.setImage(UIImage(named: "Pause"), for: .normal)
         } catch {
             print("error")
         }
