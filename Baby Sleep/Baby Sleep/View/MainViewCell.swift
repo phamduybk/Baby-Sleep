@@ -52,6 +52,7 @@ class MainViewCell: UICollectionViewCell {
     func configute(with model: Model) {
         image.image = model.image
         nameLabel.text = model.name
+        deleteHighlites()
     }
     
     
@@ -98,7 +99,6 @@ class MainViewCell: UICollectionViewCell {
             nameLabel.layer.shadowOpacity = 0.0
             nameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
             nameLabel.layer.masksToBounds = false
-            
         }
     }
     

@@ -280,6 +280,7 @@ class MainViewController: UIViewController {
         noiseDot.isHidden = false
         noiseLable.titleLabel?.alpha = 1
         collectionView.reloadData()
+        
     }
     
 }
@@ -342,6 +343,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         do {
             try AVAudioSession.sharedInstance().setMode(.default)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setCategory(.playback)
             guard let urlString = urlString else { return }
             player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
             guard let player = player else { return }
@@ -350,7 +352,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             player.setVolume(volumeSlider.value, fadeDuration: 60.0)
             stopPlayButton.setImage(UIImage(named: "Pause"), for: .normal)
         } catch {
-            print("error")
+            print("Play error")
         }
     }
     
