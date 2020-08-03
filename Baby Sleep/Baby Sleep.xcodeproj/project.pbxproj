@@ -19,6 +19,7 @@
 		046E885024C47F6D00E53C87 /* hoods.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884F24C47F6D00E53C87 /* hoods.mp3 */; };
 		046E885224C47FAF00E53C87 /* car.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E885124C47FAF00E53C87 /* car.mp3 */; };
 		0489B6CD24D84A8A0059E949 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CC24D84A8A0059E949 /* background.json */; };
+		0489B6D024D8708D0059E949 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */; };
 		0496B48E24C1D87E00677EAA /* Montserra_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */; };
 		0496B49124C1EFE000677EAA /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B49024C1EFE000677EAA /* MainViewCell.swift */; };
 		04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5667F24B88CA6002FB386 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		046E884F24C47F6D00E53C87 /* hoods.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hoods.mp3; sourceTree = "<group>"; };
 		046E885124C47FAF00E53C87 /* car.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = car.mp3; sourceTree = "<group>"; };
 		0489B6CC24D84A8A0059E949 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
+		0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserra_Regular.ttf; sourceTree = "<group>"; };
 		0496B49024C1EFE000677EAA /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		04F5667C24B88CA6002FB386 /* Baby Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Sleep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,14 @@
 			path = Noise;
 			sourceTree = "<group>";
 		};
+		0489B6CE24D84E500059E949 /* Animation JSON */ = {
+			isa = PBXGroup;
+			children = (
+				0489B6CC24D84A8A0059E949 /* background.json */,
+			);
+			path = "Animation JSON";
+			sourceTree = "<group>";
+		};
 		0496B48F24C1EF9C00677EAA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +151,7 @@
 		04F5667E24B88CA6002FB386 /* Baby Sleep */ = {
 			isa = PBXGroup;
 			children = (
-				0489B6CC24D84A8A0059E949 /* background.json */,
+				0489B6CE24D84E500059E949 /* Animation JSON */,
 				046E884724C47D9800E53C87 /* Audio */,
 				04F5669924BB0753002FB386 /* Fonts */,
 				04F5669324BAF943002FB386 /* Model */,
@@ -153,6 +163,7 @@
 				04F5668824B88CA9002FB386 /* Assets.xcassets */,
 				04F5668A24B88CA9002FB386 /* LaunchScreen.storyboard */,
 				04F5668D24B88CA9002FB386 /* Info.plist */,
+				0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */,
 				04F5669724BB02D9002FB386 /* Extensions.swift */,
 			);
 			path = "Baby Sleep";
@@ -272,6 +283,7 @@
 				046E884A24C47DB300E53C87 /* hairdryer.mp3 in Resources */,
 				0496B48E24C1D87E00677EAA /* Montserra_Regular.ttf in Resources */,
 				046E884324C47ABC00E53C87 /* rain.mp3 in Resources */,
+				0489B6D024D8708D0059E949 /* GoogleService-Info.plist in Resources */,
 				046E884E24C47F2A00E53C87 /* vacuum.mp3 in Resources */,
 				046E885224C47FAF00E53C87 /* car.mp3 in Resources */,
 				046E884124C47A8300E53C87 /* sea.mp3 in Resources */,

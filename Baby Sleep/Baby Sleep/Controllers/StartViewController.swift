@@ -13,8 +13,8 @@ import Lottie
 class StartViewController: UIViewController {
     
     //MARK:- UI
-    let backgroundImage = UIImageView()
     let startButton = UIButton()
+// View for animation with Lottie
     let backgroundView = AnimationView()
     
     
@@ -42,24 +42,14 @@ class StartViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(50)
         }
     }
-    
-    private func setupBackgroundImage() {
-        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImage.image = UIImage(named: "back")
-        backgroundImage.contentMode = .scaleAspectFill
-        self.view.addSubview(backgroundImage)
-        // set constrains
-        backgroundImage.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview()
-        }
-    }
+  
     
     @objc private func startButtonAction() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+//
     private func setupBackgroundView() {
         self.view.addSubview(backgroundView)
         backgroundView.contentMode = .scaleAspectFill
