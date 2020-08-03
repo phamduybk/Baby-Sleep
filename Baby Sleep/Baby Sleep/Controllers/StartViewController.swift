@@ -8,17 +8,20 @@
 
 import UIKit
 import SnapKit
+import Lottie
 
 class StartViewController: UIViewController {
     
     //MARK:- UI
     let backgroundImage = UIImageView()
     let startButton = UIButton()
+    let backgroundView = AnimationView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBackgroundImage()
+//        setupBackgroundImage()
+        setupBackgroundView()
         setupButton()
     }
     
@@ -55,6 +58,20 @@ class StartViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func setupBackgroundView() {
+        self.view.addSubview(backgroundView)
+        backgroundView.contentMode = .scaleAspectFill
+        let animation = Animation.named("background")
+        backgroundView.animation = animation
+        backgroundView.play()
+        backgroundView.loopMode = .loop
+        
+        backgroundView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        
     }
  
 }

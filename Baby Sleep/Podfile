@@ -6,7 +6,10 @@ target 'Baby Sleep' do
   use_frameworks!
 
 pod 'SnapKit'
+pod 'lottie-ios' 
 
   # Pods for Baby Sleep
 
 end
+
+Lottie - (3.1.8)

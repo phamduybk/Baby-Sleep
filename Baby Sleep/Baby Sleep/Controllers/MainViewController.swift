@@ -47,15 +47,18 @@ class MainViewController: UIViewController {
     let quiteVolumeImage = UIImageView()
     let trackSlider = UISlider()
     
-    fileprivate let collectionView:UICollectionView = {
+    fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 15)
         layout.minimumLineSpacing = 20
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(MainViewCell.self, forCellWithReuseIdentifier: identifier)
+        cv.isUserInteractionEnabled = true
         return cv
     }()
+    
+    @objc
     
     //    let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
