@@ -8,12 +8,14 @@ target 'Baby Sleep' do
 pod 'SnapKit'
 pod 'lottie-ios' 
 pod 'Firebase/Analytics'
+pod 'Firebase/Database'
 
   # Pods for Baby Sleep
 
 end
 
 # Lottie - (3.1.8)
+
 # Firebase (6.29.0)
 # FirebaseAnalytics (6.7.0)
 # FirebaseCore (6.9.2)
@@ -24,3 +26,5 @@ end
 # GoogleUtilities (6.7.1)
 # PromisesObjC (1.2.9)
 # nanopb (1.30905.0)
+# FirebaseDatabase (6.4.0)
+# leveldb-library (1.22)

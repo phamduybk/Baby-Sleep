@@ -9,18 +9,18 @@
 import UIKit
 import SnapKit
 import Lottie
+import FirebaseDatabase
 
 class StartViewController: UIViewController {
     
     //MARK:- UI
     let startButton = UIButton()
-// View for animation with Lottie
+    // View for animation with Lottie
     let backgroundView = AnimationView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupBackgroundImage()
+        
         setupBackgroundView()
         setupButton()
     }
@@ -43,13 +43,12 @@ class StartViewController: UIViewController {
         }
     }
   
-    
     @objc private func startButtonAction() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
-//
+    
     private func setupBackgroundView() {
         self.view.addSubview(backgroundView)
         backgroundView.contentMode = .scaleAspectFill
