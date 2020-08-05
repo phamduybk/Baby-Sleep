@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
+class NetworkService {
+    
+    func fatchData() {
+        let ref: DatabaseReference = Database.database().reference()
+        print("LINK ----- \(ref)")
+        ref.observe(.value) { snapshot in
+            print(snapshot)
+        }
+    }
+    
+}

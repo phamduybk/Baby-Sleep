@@ -308,12 +308,12 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if noiseFlag == true {
             let model = noiseModels[indexPath.row]
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
-            cell.configute(with: model)
+            cell.configure(with: model)
             return cell
         } else {
             let model = natureModels[indexPath.row]
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
-            cell.configute(with: model)
+            cell.configure(with: model)
             return cell
             
         }

@@ -13,6 +13,8 @@ import FirebaseDatabase
 
 class StartViewController: UIViewController {
     
+    var network = NetworkService()
+    
     //MARK:- UI
     let startButton = UIButton()
     // View for animation with Lottie
@@ -20,7 +22,7 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        network.fatchData()
         setupBackgroundView()
         setupButton()
     }

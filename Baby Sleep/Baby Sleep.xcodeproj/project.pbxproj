@@ -20,6 +20,7 @@
 		046E885224C47FAF00E53C87 /* car.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E885124C47FAF00E53C87 /* car.mp3 */; };
 		0489B6CD24D84A8A0059E949 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CC24D84A8A0059E949 /* background.json */; };
 		0489B6D024D8708D0059E949 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */; };
+		0492468224DAC48D00E5273E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492468124DAC48D00E5273E /* NetworkService.swift */; };
 		0496B48E24C1D87E00677EAA /* Montserra_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */; };
 		0496B49124C1EFE000677EAA /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B49024C1EFE000677EAA /* MainViewCell.swift */; };
 		04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5667F24B88CA6002FB386 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		046E885124C47FAF00E53C87 /* car.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = car.mp3; sourceTree = "<group>"; };
 		0489B6CC24D84A8A0059E949 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
 		0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0492468124DAC48D00E5273E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserra_Regular.ttf; sourceTree = "<group>"; };
 		0496B49024C1EFE000677EAA /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		04F5667C24B88CA6002FB386 /* Baby Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Sleep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,8 @@
 				04F5669324BAF943002FB386 /* Model */,
 				0496B48F24C1EF9C00677EAA /* View */,
 				04F5669624BB01F7002FB386 /* Controllers */,
+				0492468124DAC48D00E5273E /* NetworkService.swift */,
+				04F5669724BB02D9002FB386 /* Extensions.swift */,
 				04F5667F24B88CA6002FB386 /* AppDelegate.swift */,
 				04F5668124B88CA6002FB386 /* SceneDelegate.swift */,
 				04F5668524B88CA6002FB386 /* Main.storyboard */,
@@ -164,7 +168,6 @@
 				04F5668A24B88CA9002FB386 /* LaunchScreen.storyboard */,
 				04F5668D24B88CA9002FB386 /* Info.plist */,
 				0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */,
-				04F5669724BB02D9002FB386 /* Extensions.swift */,
 			);
 			path = "Baby Sleep";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			files = (
 				04F5669824BB02D9002FB386 /* Extensions.swift in Sources */,
 				04F5668424B88CA6002FB386 /* StartViewController.swift in Sources */,
+				0492468224DAC48D00E5273E /* NetworkService.swift in Sources */,
 				04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */,
 				04F566A024BB0FD6002FB386 /* MainViewController.swift in Sources */,
 				04F5668224B88CA6002FB386 /* SceneDelegate.swift in Sources */,

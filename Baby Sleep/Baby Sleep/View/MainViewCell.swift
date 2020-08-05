@@ -49,7 +49,7 @@ class MainViewCell: UICollectionViewCell {
         }
     }
     
-    func configute(with model: Model) {
+    func configure(with model: Model) {
         image.image = model.image
         nameLabel.text = model.name
         deleteHighlites()
