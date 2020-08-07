@@ -11,12 +11,23 @@ import FirebaseDatabase
 
 class NetworkService {
     
-    func fatchData() {
-        let ref: DatabaseReference = Database.database().reference()
-        print("LINK ----- \(ref)")
-        ref.observe(.value) { snapshot in
-            print(snapshot)
+    let ref: DatabaseReference = Database.database().reference()
+    func fetchData(comletion: @escaping (Result<[Sound], Error>) -> Void) {
+        ref.child("sounds").child("nature").observe(.value) { [weak self] snapshot in
+            guard let self = self else { return }
+            DispatchQueue.global().async {
+                var soundsArray = [Sound]()
+                for child in snapshot.children {
+                    if let soundSnapshot = child as? DataSnapshot,
+                        let sound = Sound(snapshot: soundSnapshot) {
+                        soundsArray.append(sound)
+                    } else {
+                        let error: Error = "Вот тут ошибка" as! Error
+                        comletion(.failure(error))
+                    }
+                }
+                comletion(.success(soundsArray))
+            }
         }
     }
-    
 }

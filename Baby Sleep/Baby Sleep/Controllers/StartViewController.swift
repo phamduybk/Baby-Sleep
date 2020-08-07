@@ -19,10 +19,18 @@ class StartViewController: UIViewController {
     let startButton = UIButton()
     // View for animation with Lottie
     let backgroundView = AnimationView()
-    
+    var sounds: [Sound] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        network.fatchData()
+        network.fetchData { result in
+            switch result {
+            case .success(let sound):
+                self.sounds = sound
+                print(self.sounds)
+            case .failure(let error):
+                print(error)
+            }
+        }
         setupBackgroundView()
         setupButton()
     }
@@ -48,6 +56,7 @@ class StartViewController: UIViewController {
     @objc private func startButtonAction() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController else { return }
+        vc.testArray = sounds
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

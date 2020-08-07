@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
                                 Model(name: "Авто", image: UIImage(named: "car") ?? UIImage(), audio: "car", color: .carColor)
     ]
     
+    var testArray: [Sound] = []
+    
     var noiseFlag = false
     var player: AVAudioPlayer?
     
@@ -75,6 +77,7 @@ class MainViewController: UIViewController {
         setupBottomTriangle()
         setupNatureLabel()
         setupNoiseLabel()
+        print(testArray)
     }
     //MARK:- Methods
     
