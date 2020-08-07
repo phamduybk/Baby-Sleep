@@ -8,6 +8,9 @@
 
 import UIKit
 import SnapKit
+import FirebaseUI
+
+
 
 class MainViewCell: UICollectionViewCell {
     
@@ -121,6 +124,14 @@ class MainViewCell: UICollectionViewCell {
         nameLabel.textColor = .white
         nameLabel.layer.shadowColor = nil
         contentView.layer.shadowColor = nil
+    }
+    
+    let storageRef = Storage.storage().reference()
+    
+    func configureWithFirebase(with model: Sound) {
+        nameLabel.text = model.titleRu
+        let ref = storageRef.child(model.imageUrl)
+        image.sd_setImage(with: ref, placeholderImage: UIImage(named: model.titleEn))
     }
     
 }

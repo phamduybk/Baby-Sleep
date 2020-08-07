@@ -303,7 +303,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if noiseFlag == true {
             return noiseModels.count
         } else {
-            return natureModels.count
+            return testArray.count
         }
     }
     
@@ -314,9 +314,9 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.configure(with: model)
             return cell
         } else {
-            let model = natureModels[indexPath.row]
+            let model = testArray[indexPath.row]
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
-            cell.configure(with: model)
+            cell.configureWithFirebase(with: model)
             return cell
             
         }

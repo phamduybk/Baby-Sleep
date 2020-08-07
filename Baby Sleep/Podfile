@@ -9,6 +9,8 @@ pod 'SnapKit'
 pod 'lottie-ios' 
 pod 'Firebase/Analytics'
 pod 'Firebase/Database'
+pod 'FirebaseUI/Storage'
+pod 'FirebaseUI/Auth'
 
   # Pods for Baby Sleep
 
@@ -28,3 +30,8 @@ end
 # nanopb (1.30905.0)
 # FirebaseDatabase (6.4.0)
 # leveldb-library (1.22)
+# FirebaseStorage (3.8.0)
+# FirebaseUI (8.4.2)
+# GTMSessionFetcher (1.4.0)
+# SDWebImage (5.8.4)
+# FirebaseAuth (6.7.1)
