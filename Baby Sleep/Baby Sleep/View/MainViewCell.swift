@@ -120,6 +120,26 @@ class MainViewCell: UICollectionViewCell {
         contentView.layer.masksToBounds = false
     }
     
+    func highlites(with model: Sound){
+        let color = UIColor(red: CGFloat(model.color.red),
+                            green: CGFloat(model.color.green),
+                            blue: CGFloat(model.color.blue),
+                            alpha: CGFloat(model.color.alpha))
+        nameLabel.textColor = color
+        nameLabel.layer.shadowColor = color.cgColor
+        nameLabel.layer.shadowRadius = 3.0
+        nameLabel.layer.shadowOpacity = 1.0
+        nameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+        nameLabel.layer.masksToBounds = false
+        
+        contentView.layer.shadowColor = color.cgColor
+        contentView.layer.shadowRadius = 5.0
+        contentView.layer.shadowOpacity = 0.5
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        contentView.layer.masksToBounds = false
+        
+    }
+    
     func deleteHighlites() {
         nameLabel.textColor = .white
         nameLabel.layer.shadowColor = nil
@@ -132,6 +152,7 @@ class MainViewCell: UICollectionViewCell {
         nameLabel.text = model.titleRu
         let ref = storageRef.child(model.imageUrl)
         image.sd_setImage(with: ref, placeholderImage: UIImage(named: model.titleEn))
+        deleteHighlites()
     }
     
 }

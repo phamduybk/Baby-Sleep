@@ -13,20 +13,23 @@ import FirebaseDatabase
 
 class StartViewController: UIViewController {
     
-    var network = NetworkService()
+ private let network = NetworkService()
     
     //MARK:- UI
     let startButton = UIButton()
     // View for animation with Lottie
     let backgroundView = AnimationView()
     var sounds: [Sound] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        network.fetchData { result in
+        
+ // get model for nature sounds
+        network.fetchData { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let sound):
                 self.sounds = sound
-                print(self.sounds)
             case .failure(let error):
                 print(error)
             }
@@ -56,7 +59,7 @@ class StartViewController: UIViewController {
     @objc private func startButtonAction() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController else { return }
-        vc.testArray = sounds
+        vc.natureSounds = sounds
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -13,8 +13,7 @@ class NetworkService {
     
     let ref: DatabaseReference = Database.database().reference()
     func fetchData(comletion: @escaping (Result<[Sound], Error>) -> Void) {
-        ref.child("sounds").child("nature").observe(.value) { [weak self] snapshot in
-            guard let self = self else { return }
+        ref.child("sounds").child("nature").observe(.value) { snapshot in
             DispatchQueue.global().async {
                 var soundsArray = [Sound]()
                 for child in snapshot.children {

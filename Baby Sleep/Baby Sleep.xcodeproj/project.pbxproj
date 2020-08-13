@@ -82,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041210FA24E2940A00ED82BC /* NetworkServises */ = {
+			isa = PBXGroup;
+			children = (
+				0492468124DAC48D00E5273E /* NetworkService.swift */,
+			);
+			path = NetworkServises;
+			sourceTree = "<group>";
+		};
 		046E884624C47D0800E53C87 /* Nature audio */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,8 +167,8 @@
 				04F5669324BAF943002FB386 /* Model */,
 				0496B48F24C1EF9C00677EAA /* View */,
 				04F5669624BB01F7002FB386 /* Controllers */,
-				0492468124DAC48D00E5273E /* NetworkService.swift */,
 				04F5669724BB02D9002FB386 /* Extensions.swift */,
+				041210FA24E2940A00ED82BC /* NetworkServises */,
 				04F5667F24B88CA6002FB386 /* AppDelegate.swift */,
 				04F5668124B88CA6002FB386 /* SceneDelegate.swift */,
 				04F5668524B88CA6002FB386 /* Main.storyboard */,
@@ -226,8 +234,8 @@
 				04F5667824B88CA6002FB386 /* Sources */,
 				04F5667924B88CA6002FB386 /* Frameworks */,
 				04F5667A24B88CA6002FB386 /* Resources */,
-				E210E3015594F3C370AA1BA1 /* [CP] Embed Pods Frameworks */,
-				A300DC3473CAE1413A2EEA2F /* [CP] Copy Pods Resources */,
+				A910C9A7B3CF5EE1EF1673F7 /* [CP] Embed Pods Frameworks */,
+				AC98A57463655C71BFF31135 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,24 +330,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A300DC3473CAE1413A2EEA2F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E210E3015594F3C370AA1BA1 /* [CP] Embed Pods Frameworks */ = {
+		A910C9A7B3CF5EE1EF1673F7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -354,6 +345,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC98A57463655C71BFF31135 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

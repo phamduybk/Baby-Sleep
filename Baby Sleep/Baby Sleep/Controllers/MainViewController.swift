@@ -9,10 +9,14 @@
 import UIKit
 import SnapKit
 import AVFoundation
+import Firebase
 
 private let identifier = "cell"
 
 class MainViewController: UIViewController {
+ 
+    
+    //MARK:- Variables and Constant
     
     let natureModels: [Model] = [Model(name: "Водопад", image: UIImage(named: "waterFall") ?? UIImage(), audio: "waterFall", color: .watterFallColor),
                                  Model(name: "Лес", image: UIImage(named: "forest") ?? UIImage(), audio: "forest", color: .forestColor),
@@ -29,10 +33,12 @@ class MainViewController: UIViewController {
                                 Model(name: "Авто", image: UIImage(named: "car") ?? UIImage(), audio: "car", color: .carColor)
     ]
     
-    var testArray: [Sound] = []
+    var natureSounds: [Sound] = []
+    private var noiseSounds: [Sound] = []
+    private var noiseFlag = false
+    private var player: AVPlayer?
+    private let storageRef = Storage.storage().reference()
     
-    var noiseFlag = false
-    var player: AVAudioPlayer?
     
     //MARK:- UI
     let topImage = UIImageView()
@@ -60,9 +66,6 @@ class MainViewController: UIViewController {
         return cv
     }()
     
-    @objc
-    
-    //    let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +80,8 @@ class MainViewController: UIViewController {
         setupBottomTriangle()
         setupNatureLabel()
         setupNoiseLabel()
-        print(testArray)
     }
+    
     //MARK:- Methods
     
     private func setupTopRectangle() {
@@ -303,7 +306,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if noiseFlag == true {
             return noiseModels.count
         } else {
-            return testArray.count
+            return natureSounds.count
         }
     }
     
@@ -314,7 +317,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.configure(with: model)
             return cell
         } else {
-            let model = testArray[indexPath.row]
+            let model = natureSounds[indexPath.row]
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
             cell.configureWithFirebase(with: model)
             return cell
@@ -325,9 +328,9 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
             if noiseFlag == false {
-                let model = natureModels[indexPath.row]
-                playAudio(audio: model.audio)
-                cell.highlights(with: model)
+                let model = natureSounds[indexPath.row]
+                playAudio(audio: model.audioUrl)
+                cell.highlites(with: model)
             } else {
                 let model = noiseModels[indexPath.row]
                 playAudio(audio: model.audio)
@@ -335,34 +338,41 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             }
         }
         addHapticFeedback()
-        
     }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
             cell.deleteHighlites()
         }
     }
     
-    // Method for start playing
+// Method for start playing
     private func playAudio(audio: String) {
-        let urlString = Bundle.main.path(forResource: audio, ofType: "mp3")
-        do {
-            try AVAudioSession.sharedInstance().setMode(.default)
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            try AVAudioSession.sharedInstance().setCategory(.playback)
-            guard let urlString = urlString else { return }
-            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-            guard let player = player else { return }
-            player.volume = 0
-            player.play()
-            player.setVolume(volumeSlider.value, fadeDuration: 60.0)
-            stopPlayButton.setImage(UIImage(named: "Pause"), for: .normal)
-        } catch {
-            print("Play error")
+//        let urlString = Bundle.main.path(forResource: audio, ofType: "mp3")
+        storageRef.child(audio).downloadURL { [weak self] (url, error) in
+            guard let self = self else { return }
+            if let error = error {
+                print("Error with download sound URL \(error)")
+            } else {
+                do {
+                    try AVAudioSession.sharedInstance().setMode(.default)
+                    try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                    try AVAudioSession.sharedInstance().setCategory(.playback)
+                    guard let url = url else { return }
+                    print(url)
+                    self.player = AVPlayer(url: url)
+                    guard let player = self.player else { return }
+                    player.play()
+//                    player.setVolume(self.volumeSlider.value, fadeDuration: 60.0)
+                    self.stopPlayButton.setImage(UIImage(named: "Pause"), for: .normal)
+                } catch {
+                    print("Play error \(error)")
+                }
+            }
         }
     }
     
-    //Method for add Haptic feedback
+//Method for add Haptic feedback
     private func addHapticFeedback() {
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
