@@ -59,10 +59,10 @@ class StartViewController: UIViewController {
     }
   
     @objc private func startButtonAction() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController else { return }
-        vc.natureSounds = sounds
-        self.navigationController?.pushViewController(vc, animated: true)
+        let destinationVC = MainViewController()
+        destinationVC.natureSounds = sounds
+        destinationVC.modalPresentationStyle = .fullScreen
+        self.show(destinationVC, sender: nil)
     }
     
     private func setupBackgroundView() {
