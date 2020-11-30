@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  UIColorExtensions.swift
 //  Baby Sleep
 //
 //  Created by Aleksandr Serov on 12.07.2020.
