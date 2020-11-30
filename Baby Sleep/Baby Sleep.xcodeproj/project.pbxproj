@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		046E884A24C47DB300E53C87 /* hairdryer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884924C47DB300E53C87 /* hairdryer.mp3 */; };
-		046E884C24C47E2A00E53C87 /* whiteNoise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884B24C47E2A00E53C87 /* whiteNoise.mp3 */; };
-		046E884E24C47F2A00E53C87 /* vacuum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884D24C47F2A00E53C87 /* vacuum.mp3 */; };
-		046E885024C47F6D00E53C87 /* hoods.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E884F24C47F6D00E53C87 /* hoods.mp3 */; };
-		046E885224C47FAF00E53C87 /* car.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 046E885124C47FAF00E53C87 /* car.mp3 */; };
 		0489B6CD24D84A8A0059E949 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CC24D84A8A0059E949 /* background.json */; };
 		0489B6D024D8708D0059E949 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */; };
 		0492468224DAC48D00E5273E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492468124DAC48D00E5273E /* NetworkService.swift */; };
@@ -24,18 +19,12 @@
 		04F5668924B88CA9002FB386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F5668824B88CA9002FB386 /* Assets.xcassets */; };
 		04F5668C24B88CA9002FB386 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F5668A24B88CA9002FB386 /* LaunchScreen.storyboard */; };
 		04F5669524BAF975002FB386 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669424BAF975002FB386 /* Model.swift */; };
-		04F5669824BB02D9002FB386 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669724BB02D9002FB386 /* UIColorExtensions.swift */; };
 		04F5669C24BB07E5002FB386 /* Montserrat_Alternates.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */; };
 		04F566A024BB0FD6002FB386 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5669F24BB0FD6002FB386 /* MainViewController.swift */; };
 		D119D954C87A003F2A472291 /* Pods_Baby_Sleep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DEA186E8F25836A30D84EB /* Pods_Baby_Sleep.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		046E884924C47DB300E53C87 /* hairdryer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hairdryer.mp3; sourceTree = "<group>"; };
-		046E884B24C47E2A00E53C87 /* whiteNoise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whiteNoise.mp3; sourceTree = "<group>"; };
-		046E884D24C47F2A00E53C87 /* vacuum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vacuum.mp3; sourceTree = "<group>"; };
-		046E884F24C47F6D00E53C87 /* hoods.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hoods.mp3; sourceTree = "<group>"; };
-		046E885124C47FAF00E53C87 /* car.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = car.mp3; sourceTree = "<group>"; };
 		0489B6CC24D84A8A0059E949 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
 		0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0492468124DAC48D00E5273E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -50,7 +39,6 @@
 		04F5668B24B88CA9002FB386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04F5668D24B88CA9002FB386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F5669424BAF975002FB386 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		04F5669724BB02D9002FB386 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		04F5669B24BB07E5002FB386 /* Montserrat_Alternates.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat_Alternates.ttf; sourceTree = "<group>"; };
 		04F5669F24BB0FD6002FB386 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		374DD1B2284686A1912976D8 /* Pods-Baby Sleep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby Sleep.debug.xcconfig"; path = "Target Support Files/Pods-Baby Sleep/Pods-Baby Sleep.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,26 +65,6 @@
 				04DAF59E24E5B0DD001E9C48 /* CachingService.swift */,
 			);
 			path = Servises;
-			sourceTree = "<group>";
-		};
-		046E884724C47D9800E53C87 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				046E884824C47DA500E53C87 /* Noise */,
-			);
-			path = Audio;
-			sourceTree = "<group>";
-		};
-		046E884824C47DA500E53C87 /* Noise */ = {
-			isa = PBXGroup;
-			children = (
-				046E884924C47DB300E53C87 /* hairdryer.mp3 */,
-				046E884B24C47E2A00E53C87 /* whiteNoise.mp3 */,
-				046E884D24C47F2A00E53C87 /* vacuum.mp3 */,
-				046E884F24C47F6D00E53C87 /* hoods.mp3 */,
-				046E885124C47FAF00E53C87 /* car.mp3 */,
-			);
-			path = Noise;
 			sourceTree = "<group>";
 		};
 		0489B6CE24D84E500059E949 /* Animation JSON */ = {
@@ -174,9 +142,7 @@
 				04F5667F24B88CA6002FB386 /* AppDelegate.swift */,
 				04F5668124B88CA6002FB386 /* SceneDelegate.swift */,
 				04F59E652575812300A35094 /* Flow */,
-				04F59E622575802100A35094 /* Core */,
 				041210FA24E2940A00ED82BC /* Servises */,
-				04F59E662575813D00A35094 /* Storyboard */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -190,21 +156,12 @@
 			path = Environments;
 			sourceTree = "<group>";
 		};
-		04F59E622575802100A35094 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				04F5669724BB02D9002FB386 /* UIColorExtensions.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		04F59E642575809000A35094 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				04F5668824B88CA9002FB386 /* Assets.xcassets */,
 				04F5668A24B88CA9002FB386 /* LaunchScreen.storyboard */,
 				0489B6CE24D84E500059E949 /* Animation JSON */,
-				046E884724C47D9800E53C87 /* Audio */,
 				04F5669924BB0753002FB386 /* Fonts */,
 			);
 			path = SupportingFiles;
@@ -217,13 +174,6 @@
 				04F59E6A2575821F00A35094 /* MainModule */,
 			);
 			path = Flow;
-			sourceTree = "<group>";
-		};
-		04F59E662575813D00A35094 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		04F59E67257581C000A35094 /* StarModule */ = {
@@ -330,17 +280,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046E884C24C47E2A00E53C87 /* whiteNoise.mp3 in Resources */,
 				04F5668C24B88CA9002FB386 /* LaunchScreen.storyboard in Resources */,
 				0489B6CD24D84A8A0059E949 /* background.json in Resources */,
 				04F5668924B88CA9002FB386 /* Assets.xcassets in Resources */,
 				04F5669C24BB07E5002FB386 /* Montserrat_Alternates.ttf in Resources */,
-				046E885024C47F6D00E53C87 /* hoods.mp3 in Resources */,
-				046E884A24C47DB300E53C87 /* hairdryer.mp3 in Resources */,
 				0496B48E24C1D87E00677EAA /* Montserra_Regular.ttf in Resources */,
 				0489B6D024D8708D0059E949 /* GoogleService-Info.plist in Resources */,
-				046E884E24C47F2A00E53C87 /* vacuum.mp3 in Resources */,
-				046E885224C47FAF00E53C87 /* car.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F5669824BB02D9002FB386 /* UIColorExtensions.swift in Sources */,
 				04F5668424B88CA6002FB386 /* StartViewController.swift in Sources */,
 				0492468224DAC48D00E5273E /* NetworkService.swift in Sources */,
 				04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */,
