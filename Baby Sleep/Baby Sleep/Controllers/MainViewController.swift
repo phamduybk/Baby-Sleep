@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 import AVFoundation
-import Firebase
+import FirebaseStorage
 
 private let identifier = "cell"
 
@@ -36,8 +36,9 @@ class MainViewController: UIViewController {
     var natureSounds: [Sound] = []
     private var noiseSounds: [Sound] = []
     private var noiseFlag = false
-    private var player: AVPlayer?
+    private var player: AVAudioPlayer!
     private let storageRef = Storage.storage().reference()
+    private let cashingService = CashingService()
     
     
     //MARK:- UI
@@ -80,6 +81,7 @@ class MainViewController: UIViewController {
         setupBottomTriangle()
         setupNatureLabel()
         setupNoiseLabel()
+   
     }
     
     //MARK:- Methods
@@ -329,11 +331,12 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
             if noiseFlag == false {
                 let model = natureSounds[indexPath.row]
-                playAudio(audio: model.audioUrl)
+                print(model.audioUrl)
+                playAudio(audio: model.audioUrl, name: model.titleEn)
                 cell.highlites(with: model)
             } else {
                 let model = noiseModels[indexPath.row]
-                playAudio(audio: model.audio)
+                playAudio(audio: model.audio, name: model.name)
                 cell.highlights(with: model)
             }
         }
@@ -347,29 +350,26 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
 // Method for start playing
-    private func playAudio(audio: String) {
-//        let urlString = Bundle.main.path(forResource: audio, ofType: "mp3")
-        storageRef.child(audio).downloadURL { [weak self] (url, error) in
+    private func playAudio(audio: String, name: String) {
+        self.cashingService.cashingAudio(shortLink: audio, fileName: name, comletion: { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print("Error with download sound URL \(error)")
-            } else {
+            switch result {
+            case .success(let url):
                 do {
                     try AVAudioSession.sharedInstance().setMode(.default)
                     try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
                     try AVAudioSession.sharedInstance().setCategory(.playback)
-                    guard let url = url else { return }
-                    print(url)
-                    self.player = AVPlayer(url: url)
+                    try self.player = AVAudioPlayer(contentsOf: url)
                     guard let player = self.player else { return }
+                    player.numberOfLoops = 2
                     player.play()
-//                    player.setVolume(self.volumeSlider.value, fadeDuration: 60.0)
-                    self.stopPlayButton.setImage(UIImage(named: "Pause"), for: .normal)
                 } catch {
                     print("Play error \(error)")
                 }
+            case .failure( _):
+                print("ошибка тут")
             }
-        }
+        })
     }
     
 //Method for add Haptic feedback
