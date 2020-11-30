@@ -23,6 +23,7 @@
 		0492468224DAC48D00E5273E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492468124DAC48D00E5273E /* NetworkService.swift */; };
 		0496B48E24C1D87E00677EAA /* Montserra_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */; };
 		0496B49124C1EFE000677EAA /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B49024C1EFE000677EAA /* MainViewCell.swift */; };
+		04DAF59F24E5B0DD001E9C48 /* CachingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAF59E24E5B0DD001E9C48 /* CachingService.swift */; };
 		04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5667F24B88CA6002FB386 /* AppDelegate.swift */; };
 		04F5668224B88CA6002FB386 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5668124B88CA6002FB386 /* SceneDelegate.swift */; };
 		04F5668424B88CA6002FB386 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5668324B88CA6002FB386 /* StartViewController.swift */; };
@@ -53,6 +54,7 @@
 		0492468124DAC48D00E5273E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0496B48D24C1D87E00677EAA /* Montserra_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserra_Regular.ttf; sourceTree = "<group>"; };
 		0496B49024C1EFE000677EAA /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		04DAF59E24E5B0DD001E9C48 /* CachingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingService.swift; sourceTree = "<group>"; };
 		04F5667C24B88CA6002FB386 /* Baby Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Sleep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F5667F24B88CA6002FB386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F5668124B88CA6002FB386 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,12 +84,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		041210FA24E2940A00ED82BC /* NetworkServises */ = {
+		041210FA24E2940A00ED82BC /* Servises */ = {
 			isa = PBXGroup;
 			children = (
 				0492468124DAC48D00E5273E /* NetworkService.swift */,
+				04DAF59E24E5B0DD001E9C48 /* CachingService.swift */,
 			);
-			path = NetworkServises;
+			path = Servises;
 			sourceTree = "<group>";
 		};
 		046E884624C47D0800E53C87 /* Nature audio */ = {
@@ -168,7 +171,7 @@
 				0496B48F24C1EF9C00677EAA /* View */,
 				04F5669624BB01F7002FB386 /* Controllers */,
 				04F5669724BB02D9002FB386 /* Extensions.swift */,
-				041210FA24E2940A00ED82BC /* NetworkServises */,
+				041210FA24E2940A00ED82BC /* Servises */,
 				04F5667F24B88CA6002FB386 /* AppDelegate.swift */,
 				04F5668124B88CA6002FB386 /* SceneDelegate.swift */,
 				04F5668524B88CA6002FB386 /* Main.storyboard */,
@@ -377,6 +380,7 @@
 				04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */,
 				04F566A024BB0FD6002FB386 /* MainViewController.swift in Sources */,
 				04F5668224B88CA6002FB386 /* SceneDelegate.swift in Sources */,
+				04DAF59F24E5B0DD001E9C48 /* CachingService.swift in Sources */,
 				0496B49124C1EFE000677EAA /* MainViewCell.swift in Sources */,
 				04F5669524BAF975002FB386 /* Model.swift in Sources */,
 			);
@@ -526,6 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 996H53HT87;
 				INFOPLIST_FILE = "Baby Sleep/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,6 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 996H53HT87;
 				INFOPLIST_FILE = "Baby Sleep/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

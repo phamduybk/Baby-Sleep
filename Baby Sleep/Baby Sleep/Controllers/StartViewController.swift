@@ -30,12 +30,14 @@ class StartViewController: UIViewController {
             switch result {
             case .success(let sound):
                 self.sounds = sound
+                DispatchQueue.main.async {
+                self.setupButton()
+                }
             case .failure(let error):
                 print(error)
             }
         }
         setupBackgroundView()
-        setupButton()
     }
     
     //MARK:- Methods
