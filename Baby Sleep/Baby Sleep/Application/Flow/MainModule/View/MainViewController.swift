@@ -20,9 +20,8 @@ private let identifier = "cell"
 class MainViewController: UIViewController {
     
     // MARK: - Propertise
-    
-    var natureSounds: [Sound] = []
-    private var noiseSounds: [Sound] = []
+    var presenter: MainVCPresenterProtocol!
+    private var noiseSounds: [SoundModel] = []
     private var noiseFlag = false
     private var player: AVAudioPlayer!
     private let storageRef = Storage.storage().reference()
@@ -58,6 +57,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.getSound()
         self.view.backgroundColor = .background
         configureTopRectangle()
         setupBottomRectangle()
@@ -318,7 +318,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if noiseFlag == true {
             return noiseSounds.count
         } else {
-            return natureSounds.count
+            return presenter.sounds?.count ?? 0
         }
     }
 
@@ -329,7 +329,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             cell.configureWithFirebase(with: model)
             return cell
         } else {
-            let model = natureSounds[indexPath.row]
+            guard let model = presenter.sounds?[indexPath.row] else { return UICollectionViewCell() }
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
             cell.configureWithFirebase(with: model)
             return cell
@@ -340,7 +340,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
             if noiseFlag == false {
-                let model = natureSounds[indexPath.row]
+                guard let model = presenter.sounds?[indexPath.row] else { return }
                 print(model.audioUrl)
                 playAudio(audio: model.audioUrl, name: model.titleEn)
                 cell.highlites(with: model)
@@ -357,5 +357,15 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
             cell.deleteHighlites()
         }
+    }
+}
+
+extension MainViewController: MainViewControllerProtocol {
+    func succes() {
+        collectionView.reloadData()
+    }
+    
+    func failure(error: Error) {
+        print(error)
     }
 }

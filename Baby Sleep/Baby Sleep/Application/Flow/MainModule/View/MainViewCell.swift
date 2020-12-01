@@ -36,7 +36,7 @@ class MainViewCell: UICollectionViewCell {
 
     // MARK: - Public Methods
 
-    func highlites(with model: Sound){
+    func highlites(with model: SoundModel){
         let color = UIColor(red: CGFloat(model.color.red),
                             green: CGFloat(model.color.green),
                             blue: CGFloat(model.color.blue),
@@ -60,7 +60,7 @@ class MainViewCell: UICollectionViewCell {
         contentView.layer.shadowColor = nil
     }
 
-    func configureWithFirebase(with model: Sound) {
+    func configureWithFirebase(with model: SoundModel) {
         nameLabel.text = model.titleRu
         let ref = storageRef.child(model.imageUrl)
         image.sd_setImage(with: ref, placeholderImage: UIImage(named: model.titleEn))
