@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045C94EE2576BB4C00A86876 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C94ED2576BB4C00A86876 /* AudioPlayer.swift */; };
+		045C94F22576C19300A86876 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C94F12576C19300A86876 /* HapticFeedback.swift */; };
 		0489B6CD24D84A8A0059E949 /* background.json in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CC24D84A8A0059E949 /* background.json */; };
 		0489B6D024D8708D0059E949 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */; };
 		0492468224DAC48D00E5273E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492468124DAC48D00E5273E /* NetworkService.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045C94ED2576BB4C00A86876 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		045C94F12576C19300A86876 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		0489B6CC24D84A8A0059E949 /* background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background.json; sourceTree = "<group>"; };
 		0489B6CF24D8708D0059E949 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0492468124DAC48D00E5273E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -69,8 +73,17 @@
 			children = (
 				0492468124DAC48D00E5273E /* NetworkService.swift */,
 				04DAF59E24E5B0DD001E9C48 /* CachingService.swift */,
+				045C94ED2576BB4C00A86876 /* AudioPlayer.swift */,
 			);
 			path = Servises;
+			sourceTree = "<group>";
+		};
+		045C94F02576C15800A86876 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				045C94F12576C19300A86876 /* HapticFeedback.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		0489B6CE24D84E500059E949 /* Animation JSON */ = {
@@ -206,6 +219,7 @@
 		04F59E7F2576364B00A35094 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				045C94F02576C15800A86876 /* Helpers */,
 				04F59E802576365800A35094 /* Extensions */,
 			);
 			path = Core;
@@ -381,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F5668424B88CA6002FB386 /* StartViewController.swift in Sources */,
+				045C94F22576C19300A86876 /* HapticFeedback.swift in Sources */,
 				0492468224DAC48D00E5273E /* NetworkService.swift in Sources */,
 				04F59E8F257642D700A35094 /* MainViewControllerPresenter.swift in Sources */,
 				04F5668024B88CA6002FB386 /* AppDelegate.swift in Sources */,
@@ -391,6 +406,7 @@
 				04F59E8A25763E0E00A35094 /* ControllerBuilder.swift in Sources */,
 				0496B49124C1EFE000677EAA /* MainViewCell.swift in Sources */,
 				04F5669524BAF975002FB386 /* SoundModel.swift in Sources */,
+				045C94EE2576BB4C00A86876 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

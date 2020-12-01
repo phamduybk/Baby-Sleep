@@ -158,14 +158,14 @@ class MainViewController: UIViewController {
         stopPlayButton.setImage(image, for: .normal)
         stopPlayButton.addTarget(self, action: #selector(playerPause), for: .touchUpInside)
         self.view.addSubview(stopPlayButton)
-        
+
         //Setup constreints
         stopPlayButton.snp.makeConstraints { make in
             make.bottom.equalTo(bottomImage.snp.bottom).inset(50)
             make.centerX.equalToSuperview()
         }
     }
-    
+
     private func configureVolumeSlider() {
         guard let loudImage = UIImage(named: "SoundLoud") else { return }
         guard let quiteImage = UIImage(named: "SoundQuiet") else { return }
@@ -177,7 +177,7 @@ class MainViewController: UIViewController {
         self.view.addSubview(volumeSlider)
         self.view.addSubview(loudVolumeImage)
         self.view.addSubview(quiteVolumeImage)
-        
+
         //Setup constreints
         volumeSlider.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -193,8 +193,7 @@ class MainViewController: UIViewController {
             make.trailing.equalTo(volumeSlider.snp.leading).offset(-16)
         }
     }
-    
-    
+
     private func configureTrackSlider() {
         self.view.addSubview(trackSlider)
         trackSlider.tintColor = .white
@@ -205,13 +204,13 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(volumeSlider.snp.bottom).inset(66)
         }
     }
-    
+
     private func configureCollectionView() {
         self.view.addSubview(collectionView)
         collectionView.backgroundColor = .background
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+
         //Setup constreints
         collectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -219,12 +218,12 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(bottomImage.snp.top)
         }
     }
-    
+
     private func configureTopTriangle() {
         guard let image = UIImage(named: "triangletop") else { return }
         topTriangle.image = image
         self.view.addSubview(topTriangle)
-        
+
         //Setup constreints
         topTriangle.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
@@ -232,12 +231,12 @@ class MainViewController: UIViewController {
             make.width.height.equalTo(80)
         }
     }
-    
+
     private func configureBottomTriangle() {
         guard let image = UIImage(named: "trianglebottom") else { return }
         bottomTriangle.image = image
         self.view.addSubview(bottomTriangle)
-        
+
         //Setup constreints
         bottomTriangle.snp.makeConstraints { make in
             make.leading.equalToSuperview()
@@ -245,9 +244,9 @@ class MainViewController: UIViewController {
             make.width.height.equalTo(80)
         }
     }
-    
+
     //MARK:- Private Methods
-    
+
     @objc private func natureButtonAction() {
         noiseFlag = false
         noiseDot.isHidden = true
@@ -255,9 +254,8 @@ class MainViewController: UIViewController {
         natureDot.isHidden = false
         natureLabel.titleLabel?.alpha = 1
         collectionView.reloadData()
-        
     }
-    
+
     @objc private func noiseButtonAction() {
         noiseFlag = true
         natureDot.isHidden = true
@@ -266,43 +264,15 @@ class MainViewController: UIViewController {
         noiseLable.titleLabel?.alpha = 1
         collectionView.reloadData()
     }
-    
+
     @objc private func playerPause(){
-        player?.pause()
+        presenter.pause()
         stopPlayButton.setImage(UIImage(named: "Play"), for: .normal)
     }
-    
+
     @objc private func changeVolume(_ slider: UISlider) {
         let value = volumeSlider.value
         player?.volume = value
-    }
-    
-    private func addHapticFeedback() {
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.prepare()
-        generator.impactOccurred()
-    }
-    
-    private func playAudio(audio: String, name: String) {
-        self.cashingService.cashingAudio(shortLink: audio, fileName: name, comletion: { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let url):
-                do {
-                    try AVAudioSession.sharedInstance().setMode(.default)
-                    try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-                    try AVAudioSession.sharedInstance().setCategory(.playback)
-                    try self.player = AVAudioPlayer(contentsOf: url)
-                    guard let player = self.player else { return }
-                    player.numberOfLoops = 2
-                    player.play()
-                } catch {
-                    print("Play error \(error)")
-                }
-            case .failure( _):
-                print("ошибка тут")
-            }
-        })
     }
 }
 
@@ -316,20 +286,20 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if noiseFlag == true {
-            return noiseSounds.count
+            return presenter.noiseSounds?.count ?? 0
         } else {
-            return presenter.sounds?.count ?? 0
+            return presenter.natureSounds?.count ?? 0
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if noiseFlag == true {
-            let model = noiseSounds[indexPath.row]
+            guard let model = presenter.noiseSounds?[indexPath.row] else { return UICollectionViewCell() }
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
             cell.configureWithFirebase(with: model)
             return cell
         } else {
-            guard let model = presenter.sounds?[indexPath.row] else { return UICollectionViewCell() }
+            guard let model = presenter.natureSounds?[indexPath.row] else { return UICollectionViewCell() }
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MainViewCell else { return UICollectionViewCell() }
             cell.configureWithFirebase(with: model)
             return cell
@@ -340,17 +310,16 @@ extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? MainViewCell {
             if noiseFlag == false {
-                guard let model = presenter.sounds?[indexPath.row] else { return }
-                print(model.audioUrl)
-                playAudio(audio: model.audioUrl, name: model.titleEn)
+                guard let model = presenter.natureSounds?[indexPath.row] else { return }
+                presenter.play(audio: model.audioUrl, name: model.titleEn)
                 cell.highlites(with: model)
             } else {
-                let model = noiseSounds[indexPath.row]
-                playAudio(audio: model.audioUrl, name: model.titleEn)
+                guard let model = presenter.noiseSounds?[indexPath.row] else { return }
+                presenter.play(audio: model.audioUrl, name: model.titleEn)
                 cell.highlites(with: model)
             }
         }
-        addHapticFeedback()
+        HapticFeedback.add()
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

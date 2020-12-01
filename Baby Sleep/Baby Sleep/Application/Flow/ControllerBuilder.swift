@@ -22,7 +22,8 @@ class ControllerBuilder: BuilderModulProtocol {
     static func createMainViewController() ->UIViewController {
         let mainViewController = MainViewController()
         let networkService = NetworkService()
-        let presenter = MainVCPresenter(view: mainViewController, networkService: networkService)
+        let audioService = AudioPlayer()
+        let presenter = MainVCPresenter(view: mainViewController, networkService: networkService, audioPlayer: audioService)
         mainViewController.presenter = presenter
         
         return mainViewController

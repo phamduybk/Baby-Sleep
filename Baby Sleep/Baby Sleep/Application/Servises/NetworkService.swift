@@ -18,8 +18,8 @@ final class NetworkService {
     //MARK: - Public Methods
 
     let ref: DatabaseReference = Database.database().reference()
-    func fetchData(comletion: @escaping (Result<[SoundModel], Error>) -> Void) {
-        ref.child("sounds").child("nature").observe(.value) { snapshot in
+    func fetchData(type: String, comletion: @escaping (Result<[SoundModel], Error>) -> Void) {
+        ref.child("sounds").child(type).observe(.value) { snapshot in
             DispatchQueue.global().async {
                 var soundsArray = [SoundModel]()
                 for child in snapshot.children {

@@ -19,29 +19,47 @@ protocol MainViewControllerProtocol: AnyObject {
 }
 
 protocol MainVCPresenterProtocol {
-    init(view: MainViewControllerProtocol, networkService: NetworkService)
-    var sounds: [SoundModel]? { get set }
+    init(view: MainViewControllerProtocol, networkService: NetworkService, audioPlayer: AudioPlayerProtocol)
+    var natureSounds: [SoundModel]? { get set }
+    var noiseSounds: [SoundModel]? { get set }
     func getSound()
+    func play(audio: String, name: String)
+    func pause()
 }
 
 class MainVCPresenter: MainVCPresenterProtocol {
     
     weak var view: MainViewControllerProtocol?
     private let networkService: NetworkService
-    var sounds: [SoundModel]?
+    private let audioPlayer: AudioPlayerProtocol
+    var natureSounds: [SoundModel]?
+    var noiseSounds: [SoundModel]?
 
 
-    required init(view: MainViewControllerProtocol, networkService: NetworkService) {
+    required init(view: MainViewControllerProtocol, networkService: NetworkService, audioPlayer: AudioPlayerProtocol) {
         self.view = view
         self.networkService = networkService
+        self.audioPlayer = audioPlayer
     }
 
     func getSound() {
-        networkService.fetchData { [weak self] result in
+        networkService.fetchData(type: Inner.natureSound) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let sound):
-                self.sounds = sound
+            case .success(let natureSounds):
+                self.natureSounds = natureSounds
+                DispatchQueue.main.async {
+                    self.view?.succes()
+                }
+            case .failure(let error):
+                self.view?.failure(error: error)
+            }
+        }
+        networkService.fetchData(type: Inner.noiseSound) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let noiseSounds):
+                self.noiseSounds = noiseSounds
                 DispatchQueue.main.async {
                     self.view?.succes()
                 }
@@ -50,4 +68,18 @@ class MainVCPresenter: MainVCPresenterProtocol {
             }
         }
     }
+
+    func play(audio: String, name: String) {
+        audioPlayer.play(audio: audio, name: name)
+    }
+
+    func pause() {
+        audioPlayer.pause()
+    }
+
+    private struct Inner {
+        static let natureSound = "nature"
+        static let noiseSound = "noise"
+    }
+
 }
